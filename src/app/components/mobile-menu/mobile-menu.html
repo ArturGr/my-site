@@ -1,0 +1,12 @@
+<div class="menu-bar-mobile"  [class.menu-bar-mobile--active]="isMenuOpen">
+  <div id="btn-for-section-mobile" class="menu-bar-mobile--section">
+    <button id="why-me-btn" [class.active]="activedButton === 'why-me-btn'" (click)="scrollToSection('why-me-section','why-me-btn')">Why me</button>
+    <button id="my-skills-btn" [class.active]="activedButton === 'my-skills-btn'" (click)="scrollToSection('my-skills-section','my-skills-btn')">Skills</button>
+    <button id="my-project-btn" [class.active]="activedButton === 'my-project-btn'" (click)="scrollToSection('my-project-section','my-project-btn')">Projects</button>
+    <button id="contact-me-btn" [class.active]="activedButton === 'contact-me-btn'" (click)="scrollToSection('contact-me-section','contact-me-btn')">Contact</button>
+  </div>
+  <div id="btn-for-language-mobile" class="menu-bar-mobile--language">
+    <button id="EN-btn" [class.active]="activedLangBtn === 'EN-btn'" (click)="activLangBtn('EN-btn')" (mouseover)="handleLangHover('EN-btn')" (mouseleave)="handleLangLeave()">EN</button>
+    <button id ="DE-btn" [class.active]="activedLangBtn === 'DE-btn'" (click)="activLangBtn('DE-btn')" (mouseover)="handleLangHover('DE-btn')" (mouseleave)="handleLangLeave()">DE</button>
+  </div>
+</div>

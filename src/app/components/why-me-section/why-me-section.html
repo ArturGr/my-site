@@ -1,0 +1,32 @@
+<div class="background">
+  <div id="why-me-section" class="why-me-section scroll-section">
+    <h2>Why me</h2>
+    <div class="why-me-section__inhalt" (mouseenter)="triggerAnimation()">
+
+      <div class="why-me-section__inhalt__animated">
+        <div class="why-me-section__inhalt__animated--location">
+          <div class="why-me-section__inhalt__animated--background" [class.active]="isAnimatingWhySlide">
+            <img [src]="'./img/why-me-icons/' + slides[currentSlideIndex()].icon" alt="Icon">
+          </div>
+            <p>
+            <span class="highlight">
+              {{ displayText().substring(0, getHighlightIndex(displayText())) }}
+            </span>
+            <span>
+              {{ displayText().substring(getHighlightIndex(displayText())) }}
+           </span>
+            <span class="cursor" [class.active]="isAnimatingWhySlide">|</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="why-me-section__inhalt__description">
+        <p>Why are you passionate about coding?</p>
+        <p>You can include some key traits like: analytical thinking, creativity, persistence and collaboration.</p>
+        <p>A problem-solving mindset is always nice to have.</p>
+      </div>
+
+    </div>
+    <button (click)="scrollToSection('contact-me-section','contact-me-btn')">Let’s talk</button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+@use '../../../styles.scss';
+
+.my-skills-section{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 109px;
+}

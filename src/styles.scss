@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+$primary-color: #89BCD9;
+$secondary-color: #F8F5EC;
+$secondary-dark-grey: #262E34;
+$secondary-light-grey: #f8f5ec12;
+$inactive: rgba(38, 46, 52, 0.12);
+$error: #E44C36;
+$done: #97E163;
+$black: black;
+$white: white;
+
+* {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-size: inherit;
+    color: inherit;
+    font-family: inherit;
+    background: initial;
+    border: initial;
+}
+.sticky{
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
+.hidden{
+  display: none !important;
+}
+.background{
+  width: 100%;
+  height: auto;
+  background-color: var(--background-color, $secondary-dark-grey);
+}
+
+.pos-absolute{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width:768px) {
+
+.sticky{
+    position: absolute;
+    top: 0px;
+    z-index: 0;
+    width: 100%;
+}
+
+}

@@ -1,0 +1,150 @@
+@use '../../../styles.scss';
+.menu-bar-background-color{
+  background-color: styles.$primary-color;
+}
+.menu-bar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 104px;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px clamp(1.25rem, 8vw, 6.81rem);
+  background-color: styles.$primary-color;
+  .header-logo{
+    background-color: styles.$primary-color;
+    --logo-role-color: #{styles.$secondary-dark-grey};
+  }
+  &__sections{
+    font-family: Josefin Sans;
+    font-weight: 500;
+    font-size: 26px;
+    text-box-trim: none;
+    line-height: min(120%, 31px);
+    letter-spacing: 0%;
+    text-align: center;
+    display: flex;
+    gap: 32px;
+    button{
+      width: 100px;
+      cursor: pointer;
+      position: relative;
+      background: transparent;
+      border: none;
+      transition: color 0.3s ease;
+      z-index: 1;
+      &.active {
+        color: styles.$secondary-color;
+        &::before {
+          content: '';
+          position: absolute;
+          pointer-events: none;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 200%;
+          height: 200%;
+          background-image: url('/img/Ellipse-24.png');
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          z-index: -1;
+          animation: shape-pop 0.4s ease-out;
+        }
+      }
+      &:hover{
+        color: styles.$secondary-color;
+        transition: color 0.3s ease-in-out;
+      }
+    }
+  }
+  &__language{
+    font-family: Josefin Sans;
+    font-weight: 400;
+    font-size: 18px;
+    text-box-trim: none;
+    line-height: min(120%, 22px);
+    letter-spacing: 0%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 92px;
+    height: auto;
+    button{
+      width: 27px;
+      cursor: pointer;
+      position: relative;
+      background: transparent;
+      border: none;
+      transition: color 0.3s ease;
+      z-index: 1;
+      &.active {
+        color: styles.$secondary-color;
+        &::before {
+          content: '';
+          position: absolute;
+          pointer-events: none;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 150%;
+          height: 150%;
+          background-image: url('/img/Ellipse-24.png');
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          z-index: -1;
+          animation: shape-pop 0.4s ease-out;
+        }
+      }
+      &:hover{
+        color: styles.$secondary-color;
+        transition: color 0.3s ease-in-out;
+      }
+    }
+  }
+}
+.burger-menu{
+  width: 32px;
+  height: auto;
+  display: none;
+}
+
+@keyframes shape-pop {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+@media screen and (max-width:768px) {
+
+  .background{
+    background-color: styles.$secondary-dark-grey;
+  }
+  .menu-bar{
+    background-color: styles.$secondary-dark-grey;
+    justify-content: space-between;
+    margin: 0px 20px;
+    padding: 0px 0px;
+    .header-logo{
+      background-color: styles.$secondary-dark-grey;
+      --logo-role-color: #{styles.$primary-color};
+    }
+    &__sections{
+      display: none;
+    }
+    &__language{
+      display: none;
+    }
+  }
+  .burger-menu{
+    height: 60px;
+    width: 60px;
+    background-color: transparent;
+    display: flex;
+  }
+}

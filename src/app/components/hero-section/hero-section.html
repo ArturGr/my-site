@@ -1,0 +1,19 @@
+<div class="background">
+  <div id="hero-section" class="hero-section">
+    <div id="hero-section-image" class="hero-section__image" (mouseenter)="toggleHover(true)" (mouseleave)="toggleHover(false)">
+      <img src="./my-image/my-image.png" alt="My foto" class="hero-section__image--my"  [class.hero-section__image--my--active]="isMenuOpen">
+      <app-mobile-menu class="pos-absolute"/>
+      <img src="./img/BG-shape.png" alt="Background elipse" class="hero-section__image--elipse" [class.hero-section__image--active]="!isHovered">
+      <img src="./img/BG-shape-hover.png" alt="Background elipse" class="hero-section__image--elipse" [class.hero-section__image--active]="isHovered">
+    </div>
+    <div id="hero-section-title" class="hero-section__title">
+          <app-my-logo class="hero-logo"/>
+          <app-social-media-buttons class="socialBtn"/>
+          <h1>Artur Groblicki</h1>
+          <h2>FRONTEND DEVELOPER</h2>
+          <button class="hero-section__title--arowwdown" (click)="scrollToSection('why-me-section', 'why-me-btn')">
+            <img src="./img/arrow/arrow-down.png" alt="Arrow down">
+          </button>
+    </div>
+  </div>
+</div>

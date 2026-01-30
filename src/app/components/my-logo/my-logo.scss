@@ -1,0 +1,36 @@
+@use '../../../styles.scss';
+
+.my-logo{
+  width: 70px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  justify-content: center;
+  align-items: center;
+  &__img-container{
+    height: 40px;
+  }
+  img{
+    height: var(--logo-size, 30px);
+    transition: height 0.5s ease-in-out;
+  }
+  &__name{
+    font-family: 'Anta';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: max(120%, 17px);
+    color: styles.$secondary-color;
+
+  }
+  &__role{
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: max(120%, 17px);
+    color: var(--logo-role-color, styles.$secondary-dark-grey);
+  }
+}

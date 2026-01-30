@@ -1,0 +1,167 @@
+@use '../../../styles.scss';
+
+.hero-section{
+  height: calc(100vh - 104px);
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-content: flex-end;
+  &__image{
+    margin-left: clamp(1.25rem, 8vw, 6.81rem);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-end;
+    justify-content: center;
+    align-items: flex-end;
+    height: auto;
+    width: calc(52% - clamp(1.25rem, 8vw, 6.81rem));
+    &--my{
+      margin-left: 25px;
+      z-index: 2;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 0.91;
+      transition: opacity 0.5s ease-in-out;
+      opacity: 1;
+      &--active{
+        transition: opacity 0.5s ease-in-out;
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+    &--elipse{
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: 1;
+      transition: opacity 0.5s ease-in-out;
+      opacity: 0;
+      pointer-events: none;
+    }
+    &--active{
+        opacity: 1;
+    }
+  }
+  &__title{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-end;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: clamp(1.25rem, 8vw, 6.81rem);
+    width: calc(50% - clamp(1.25rem, 8vw, 6.81rem));
+    aspect-ratio: 0.91;
+    .hero-logo{
+      position: absolute;
+      top: 15%;
+      height: 40px;
+      --logo-role-color: #{styles.$primary-color};
+      &:hover {
+        --logo-size: 40px;
+      }
+    }
+    h1{
+      font-family: 'Anta';
+      font-style: normal;
+      font-weight: 400;
+      font-size: clamp(3rem, 5.5vw, 5.5rem);
+      line-height:1.2;
+      text-align: center;
+      color: styles.$secondary-color;
+      position: absolute;
+      top: 40%;
+    }
+    h2{
+      font-family: 'Josefin Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: clamp(1.5rem, 2.2vw, 2.5rem);
+      line-height: 1.2;
+      text-align: center;
+      color: styles.$secondary-color;
+      position: relative;
+      top: 60%;
+    }
+    .socialBtn{
+      position: absolute;
+      top: 5%;
+      right: 0;
+      z-index: 5;
+    }
+    &--arowwdown{
+      width: 38px;
+      height: 89px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      bottom: 5%;
+    }
+    &--arowwdown:hover{
+      background-color: styles.$secondary-light-grey;
+    }
+  }
+}
+
+@media screen and (max-width:768px) {
+  .background{
+    padding-top: 104px;
+  }
+  .hero-section{
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+    &__image{
+      margin: 0px 20px;
+      flex-direction: column;
+      align-content: center;
+      width: auto;
+      align-items: center;
+      &--my{
+        margin: 0;
+        -webkit-mask-image: url('/img/BG-shape-halb.png');
+        mask-image: url('/img/BG-shape-halb.png');
+        -webkit-mask-size: contain;
+        mask-size: 100%;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        mask-position: bottom center;
+      }
+    }
+    &__title{
+      width: 100%;
+      height: 100%;
+      margin: 0px 20px;
+      aspect-ratio: unset;
+      justify-content: flex-start;
+      align-content: center;
+      gap: 1rem;
+      h1{
+        position: unset;
+        top: unset;
+      }
+      h2{
+        position: unset;
+        top: unset;
+      }
+      .hero-logo{
+        display: none;
+      }
+      &--arowwdown{
+        bottom: unset;
+        top: 20%;
+      }
+    }
+  }
+  .socialBtn{
+    display: none;
+  }
+}
