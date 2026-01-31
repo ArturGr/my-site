@@ -10,9 +10,9 @@ import { MenuBar } from '../menu-bar/menu-bar';
 export class WhyMeSection extends MenuBar {
 
   readonly slides = [
-    {icon: 'Location.png', fullText: 'I am located in Ainring ...' },
-    {icon: 'Relocation.png', fullText: 'I am open to relocate ...' },
-    {icon: 'Remote.png', fullText: 'I am open to work remote ...' }
+    {icon: 'Location.png', fullText: 'I am located in Ainring.'},
+    {icon: 'Relocation.png', fullText: 'I am open to relocate.'},
+    {icon: 'Remote.png', fullText: 'I am open to work remote.'}
   ];
   currentSlideIndex = signal(0);
   displayText = signal(this.slides[0].fullText);

@@ -8,7 +8,7 @@
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0px 109px;
+  padding: 80px clamp(1.25rem, 8vw, 6.81rem);
   &__inhalt{
     width: 100%;
     display: flex;
@@ -17,6 +17,8 @@
     align-content: center;
     flex-wrap: wrap;
     flex-direction: row;
+    margin: 32px 0px;
+    gap: 3%;
     &__animated{
       display: flex;
       flex-direction: column;
@@ -61,17 +63,25 @@
               }
             }
           }
-      p{
-        font-family: 'Josefin Sans';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 30px;
-        line-height: min(120%, 36px);
-        color: styles.$primary-color;
-      }
+        &--text{
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-content: center;
+          justify-content: flex-start;
+          align-items: center;
+          span{
+            font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 30px;
+            line-height: min(120%, 36px);
+            color: styles.$primary-color;
+          }
+        }
     }
     &__description{
-      width: 50%;
+      width: 47%;
       p{
         font-family: 'Josefin Sans';
         font-style: normal;
@@ -104,7 +114,8 @@
 }
 
 .highlight {
-  color: styles.$secondary-color;
+  padding-right: 8px;
+  color: styles.$secondary-color !important;
 }
 
 .cursor {
@@ -113,6 +124,8 @@
   margin-left: 2px;
   color: styles.$secondary-color;
   vertical-align: middle;
+  position: relative;
+  bottom: 5px;
   &.active {
     display: inline-block;
     animation: blink 0.8s step-end infinite;
@@ -139,11 +152,32 @@ button{
   order: 1;
   flex-grow: 0;
   color: styles.$primary-color;
+  position: relative;
+  left: calc(50% - 134px / 2);
   &:hover{
   background-color: styles.$secondary-light-grey;
   }
 }
 
+@media screen and (max-width:768px){
 
+  .why-me-section{
+    &__inhalt{
+      flex-direction: column;
+      gap: 32px;
+      &__animated{
+        width: 100%;
+        flex-direction: row;
+      }
+      &__description{
+        width: 100%;
+      }
+    }
+  }
+
+  button{
+    display: none;
+  }
+}
 
 

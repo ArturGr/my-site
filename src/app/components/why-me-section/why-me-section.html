@@ -2,28 +2,28 @@
   <div id="why-me-section" class="why-me-section scroll-section">
     <h2>Why me</h2>
     <div class="why-me-section__inhalt" (mouseenter)="triggerAnimation()">
-
       <div class="why-me-section__inhalt__animated">
         <div class="why-me-section__inhalt__animated--location">
           <div class="why-me-section__inhalt__animated--background" [class.active]="isAnimatingWhySlide">
             <img [src]="'./img/why-me-icons/' + slides[currentSlideIndex()].icon" alt="Icon">
           </div>
-            <p>
+          <div class="why-me-section__inhalt__animated--text">
             <span class="highlight">
               {{ displayText().substring(0, getHighlightIndex(displayText())) }}
             </span>
             <span>
               {{ displayText().substring(getHighlightIndex(displayText())) }}
-           </span>
+            </span>
             <span class="cursor" [class.active]="isAnimatingWhySlide">|</span>
-          </p>
+          </div>
         </div>
       </div>
-
       <div class="why-me-section__inhalt__description">
-        <p>Why are you passionate about coding?</p>
-        <p>You can include some key traits like: analytical thinking, creativity, persistence and collaboration.</p>
-        <p>A problem-solving mindset is always nice to have.</p>
+        <p>
+          Coding is where my analytical thinking meets relentless persistence.
+          <br>I treat every complex bug as a puzzle that requires a problem-solving mindset to solve.
+          <br>I don’t just write code. I value collaboration to transform difficult challenges into clean, efficient, and scalable digital solutions.
+        </p>
       </div>
 
     </div>
