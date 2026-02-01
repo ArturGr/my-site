@@ -1,5 +1,5 @@
 .social-btn{
-  width: 30px;
+  width: auto;
   height: auto;
   display: flex;
   flex-direction: var(--flex-direction,column);
@@ -21,15 +21,15 @@
       }
     };
     &__linkedin {
-      background-image: var(--githubDef,url("/img/social-media-buttons/linkedin/default.png"));
+      background-image: var(--linkedinbDef,url("/img/social-media-buttons/linkedin/default.png"));
       &:hover{
-        background-image: var(--githubHov,url("/img/social-media-buttons/linkedin/hover-blue.png"));
+        background-image: var(--linkedinHov,url("/img/social-media-buttons/linkedin/hover-blue.png"));
       }
     };
     &__email {
-      background-image: var(--githubDef,url("/img/social-media-buttons/email/default.png"));
+      background-image: var(--emailDef,url("/img/social-media-buttons/email/default.png"));
       &:hover{
-        background-image: var(--githubHov,url("/img/social-media-buttons/email/hover-blue.png"));
+        background-image: var(--emailHov,url("/img/social-media-buttons/email/hover-blue.png"));
       }
     };
 

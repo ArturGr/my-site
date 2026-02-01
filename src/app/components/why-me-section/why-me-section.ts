@@ -16,27 +16,25 @@ export class WhyMeSection extends MenuBar {
   ];
   currentSlideIndex = signal(0);
   displayText = signal(this.slides[0].fullText);
-  isAnimatingWhySlide = false;
+  isAnimatingWhySlide = signal(false);
 
   //
   async triggerAnimation() {
-    if (this.isAnimatingWhySlide ) return;
-    this.isAnimatingWhySlide  = true;
-
-    for (let i = 0; i < this.slides.length; i++) {
+    if (this.isAnimatingWhySlide() ) return;
+    this.isAnimatingWhySlide.set(true);
+    for (let i = 1; i < this.slides.length; i++) {
+      await this.backspaceEffect();
       await this.runSlideCycle(i);
-      if (i < this.slides.length - 1) this.displayText.set('');
     }
-
-    this.resetToDefault();
+    await this.backspaceEffect();
+    await this.runSlideCycle(0);
+    this.isAnimatingWhySlide.set(false);
   }
 
   //
   private async runSlideCycle(index: number) {
     this.currentSlideIndex.set(index);
-    if (index !== 0 || this.displayText() === '') {
-      await this.typeEffect(this.slides[index].fullText);
-    }
+    await this.typeEffect(this.slides[index].fullText);
     return new Promise(res => setTimeout(res, 1000));
   }
 
@@ -55,13 +53,20 @@ export class WhyMeSection extends MenuBar {
   }
 
   //
-  private resetToDefault() {
-    this.currentSlideIndex.set(0);
-    this.displayText.set(this.slides[0].fullText);
-    this.isAnimatingWhySlide  = false;
+  private backspaceEffect(): Promise<void> {
+    return new Promise(resolve => {
+      let text = this.displayText();
+      const interval = setInterval(() => {
+        text = text.slice(0, -1);
+        this.displayText.set(text);
+        if (text.length === 0) {
+          clearInterval(interval);
+          resolve();
+        }
+      }, 50);
+    });
   }
 
-// Zwraca indeks końcowy dla highlightu (3 pierwsze litery, pomijając spacje)
 getHighlightIndex(text: string): number {
   let letterCount = 0;
   let i = 0;

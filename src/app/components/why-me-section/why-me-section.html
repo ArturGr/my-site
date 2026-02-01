@@ -4,7 +4,7 @@
     <div class="why-me-section__inhalt" (mouseenter)="triggerAnimation()">
       <div class="why-me-section__inhalt__animated">
         <div class="why-me-section__inhalt__animated--location">
-          <div class="why-me-section__inhalt__animated--background" [class.active]="isAnimatingWhySlide">
+          <div class="why-me-section__inhalt__animated--background" [class.active]="isAnimatingWhySlide()">
             <img [src]="'./img/why-me-icons/' + slides[currentSlideIndex()].icon" alt="Icon">
           </div>
           <div class="why-me-section__inhalt__animated--text">
@@ -14,7 +14,7 @@
             <span>
               {{ displayText().substring(getHighlightIndex(displayText())) }}
             </span>
-            <span class="cursor" [class.active]="isAnimatingWhySlide">|</span>
+            <span class="cursor" [class.active]="isAnimatingWhySlide()">|</span>
           </div>
         </div>
       </div>
