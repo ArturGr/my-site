@@ -88,6 +88,9 @@
     }
   }
 }
+button{
+  display: none;
+}
 
 @media screen and (min-width:768px) and (max-width:900px){
   .my-skills-section__inhalt__grid{
@@ -151,6 +154,25 @@
         }
       }
     }
+  }
+  button{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+    padding: 13px 30px;
+    gap: 10px;
+    width: 134px;
+    height: 48px;
+    border: 1px solid styles.$primary-color;
+    border-radius: 30px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    background-color: styles.$primary-color;
+    color: styles.$secondary-dark-grey;
   }
 }
 
