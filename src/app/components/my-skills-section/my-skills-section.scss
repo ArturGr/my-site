@@ -2,11 +2,161 @@
 
 .my-skills-section{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0px 109px;
+  padding: 40px clamp(1.25rem, 8vw, 6.81rem) 80px;
+  h2{
+    font-family: 'Anta';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 1.2;
+    text-align: center;
+    color: styles.$primary-color;
+    width: 100%;
+    padding-right: 40%;
+    padding-bottom: 80px;
+  }
+  &__inhalt{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    &__grid{
+      width: 60%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(30px, 4vw, 40px);
+      justify-content: center;
+      justify-items: center;
+      align-items: start;
+      align-content: center;
+      & > *:nth-child(4n + 1):nth-last-child(2) {
+        grid-column: 2;
+      }
+      & > *:nth-child(4n + 2):last-child {
+        grid-column: 3;
+      }
+    }
+    &__learning{
+      display: grid;
+      gap: 32px;
+      width: 40%;
+      min-width: 330px;
+      justify-items: center;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      &--font-color { grid-area: title; }
+      &--icons { grid-area: icons; }
+      span:last-of-type { grid-area: desc; }
+      grid-template-areas:
+        "title"
+        "icons"
+        "desc";
+      height: -webkit-fill-available;
+      background-image: url("/img/skills/Ellipse-Default.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      transition: background-image 0.5s ease-in-out;
+      &:hover {
+        background-image: url("/img/skills/Ellipse-Hover.png");
+      }
+      span {
+        font-family: 'Josefin Sans';
+        font-size: 18px;
+        line-height: 1.2;
+        text-align: center;
+        color: styles.$secondary-color;
+        padding: 0 20%;
+      }
+      &--icons {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        width: 100%;
+      }
+    }
+  }
 }
+
+@media screen and (min-width:768px) and (max-width:900px){
+  .my-skills-section__inhalt__grid{
+    gap: clamp(6px, 1.5vw, 30px);;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .my-skills-section{
+    h2{
+      padding-right: 0;
+      padding-bottom: 40px;
+    }
+    &__inhalt{
+      flex-direction: column;
+      &__grid{
+        width: 100%;
+        padding-bottom: 40px;
+      }
+      &__learning{
+        width: 100%;
+        min-width: unset;
+        background-image: none;
+        grid-template-columns: 60% auto;
+        grid-template-areas:
+          "title title"
+          "desc icons";
+        gap: clamp(16px, 4vw, 32px);
+        &:hover { background-image: none; }
+        &--font-color {
+          color: styles.$primary-color !important;
+          width: 100% !important;
+          text-align: center !important;
+          padding: 0 !important;
+        }
+        span:last-of-type {
+          font-family: 'Josefin Sans';
+          font-size: 16px;
+          text-align: left;
+          color: styles.$secondary-color;
+          padding: 0;
+          width: 100%;
+        }
+        &--icons {
+          width: 100%;
+          height: auto;
+          display: flex;
+          justify-content: center;
+          &::before {
+            content: "";
+            position: absolute;
+            top: -35%;
+            left: -10%;
+            width: 113px;
+            height: 96px;
+            background-image: url("/img/skills/mobile/Ellipse-24.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+

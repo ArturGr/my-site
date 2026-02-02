@@ -23,6 +23,7 @@ export class MenuBar {
   activedButton:string = "";
   isManualScrolling: boolean = false;
   protected menuService = inject(Menu);
+  isMobile: boolean = window.innerWidth <= 768;
 
   //pobranie stanu burgermenu
   get isMenuOpen() {
@@ -136,7 +137,9 @@ export class MenuBar {
   // funkcja przelaczajaca dostepnosc i reakcje burger menu
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
-    if (window.innerWidth >= 768 && this.isMenuOpen) {
+    const width = window.innerWidth;
+    this.isMobile = width <= 768;
+    if (width >= 768 && this.isMenuOpen) {
       this.toggleMenu();
     }
   }

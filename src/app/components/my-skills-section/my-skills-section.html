@@ -1,5 +1,35 @@
 <div class="background">
   <div id="my-skills-section" class="my-skills-section scroll-section">
-    <img src="./img/test/my-skills-ss.png" alt="test why-me-section">
+      <h2>My Skills</h2>
+      <div class="my-skills-section__inhalt">
+        <div class="my-skills-section__inhalt__grid">
+        @if (isMobile) {
+          @for (item of iconMobile; track item[1]) {
+            <img [src]="item[0]" [alt]="item[1]">
+          }
+        } @else {
+          @for (item of iconDesktop; track item[1]) {
+            <img [src]="item[0]" [alt]="item[1]">
+          }
+        }
+        </div>
+        <div class="my-skills-section__inhalt__learning">
+          <span class="my-skills-section__inhalt__learning--font-color">
+          @if (isMobile) {
+            What I am currently learning
+          } @else {
+            I am currently learning
+          }
+          </span>
+          <div class="my-skills-section__inhalt__learning--icons">
+            @for (item of currentlyLearning; track item) {
+              <img src={{item[0]}} alt={{item[1]}}>
+          }
+          </div>
+          <span>
+            Show that you are motivated to continually improve your skills, implement innovative solutions and stay abreast of new technologies.
+          </span>
+        </div>
+      </div>
   </div>
 </div>

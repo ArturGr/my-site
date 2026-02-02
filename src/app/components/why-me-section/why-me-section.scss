@@ -8,7 +8,7 @@
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
-  padding: 80px clamp(1.25rem, 8vw, 6.81rem);
+  padding: 80px clamp(1.25rem, 8vw, 6.81rem) 40px;
   &__inhalt{
     width: 100%;
     display: flex;
@@ -82,7 +82,7 @@
     }
     &__description{
       width: 47%;
-      p{
+      span{
         font-family: 'Josefin Sans';
         font-style: normal;
         font-weight: 400;
