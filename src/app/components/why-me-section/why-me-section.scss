@@ -17,7 +17,7 @@
     align-content: center;
     flex-wrap: wrap;
     flex-direction: row;
-    margin: 32px 0px;
+    padding-bottom: 24px;
     gap: 3%;
     &__animated{
       display: flex;
@@ -97,7 +97,7 @@
     }
   }
   h2{
-    padding: 16px;
+    padding-bottom: 80px;
     font-family: 'Anta';
     font-style: normal;
     font-weight: 400;
@@ -110,7 +110,6 @@
     align-self: stretch;
     flex-grow: 0;
   }
-
 }
 
 .highlight {
@@ -165,6 +164,7 @@ button{
     &__inhalt{
       flex-direction: column;
       gap: 32px;
+      padding-bottom: 0px;
       &__animated{
         width: 100%;
         flex-direction: row;
@@ -172,6 +172,9 @@ button{
       &__description{
         width: 100%;
       }
+    }
+    h2{
+      padding-bottom: 32px;
     }
   }
 

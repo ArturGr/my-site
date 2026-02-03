@@ -8,5 +8,19 @@
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0px 109px;
+  padding: 40px clamp(1.25rem, 8vw, 6.81rem);
+    h2{
+    padding: 16px;
+    font-family: 'Anta';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: min(120%, 72px);
+    text-align: center;
+    color: styles.$primary-color;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+  }
 }

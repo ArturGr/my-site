@@ -113,8 +113,10 @@
 @media screen and (max-width:768px) {
   .background{
     padding-top: 104px;
+    padding-bottom: 34px;
   }
   .hero-section{
+    height: auto;
     flex-direction: column;
     align-items: center;
     align-content: center;
@@ -144,6 +146,7 @@
       justify-content: flex-start;
       align-content: center;
       gap: 1rem;
+      top: 1rem;
       h1{
         position: unset;
         top: unset;
@@ -157,7 +160,7 @@
       }
       &--arowwdown{
         bottom: unset;
-        top: 20%;
+        top: 1rem;
       }
     }
   }
