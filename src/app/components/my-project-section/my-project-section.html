@@ -1,13 +1,27 @@
 <div class="background">
   <div id="my-project-section" class="my-project-section scroll-section">
     <h2>My Projects</h2>
-    <div>Projekts liste</div>
-    <div>Project detail
-      <div>ScreenShot</div>
-      <div>
+    <div class="my-project-section__list">
+      @for (item of projects; track item.id) {
+      <h3
+        (click)="activeProject = item.id"
+        [class.active-project]="activeProject === item.id">
+        {{item.id}}. {{item.properties.name}}
+      </h3>
+      }
+    </div>
 
+    <div class="my-project-section__detail">
+      @let selected = projects[activeProject - 1];
+
+      <div class="screenshot">
+        <img [src]="selected.properties.img" [alt]="selected.properties.name">
       </div>
 
+      <div class="info">
+        <h4>{{selected.properties.name}}</h4>
+        <p>{{selected.properties.about}}</p>
+        </div>
     </div>
   </div>
 </div>

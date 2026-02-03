@@ -22,16 +22,16 @@ export class MySkillsSection extends MenuBar {
   ];
 
   iconMobile:string[][]=[
-    ["./img/skills/mobile/0-Angular.png","Angular Icon"],
-    ["./img/skills/mobile/1-TypeScript.png","TypeScript Icon"],
-    ["./img/skills/mobile/2-JavaScript.png","JavaScript Icon"],
-    ["./img/skills/mobile/3-HTML.png","HTML Icon"],
-    ["./img/skills/mobile/4-CSS.png","CSS Icon"],
-    ["./img/skills/mobile/5-Rest-Api.png","RestAPI Icon"],
-    ["./img/skills/mobile/6-Firebase.png","Firebase Icon"],
-    ["./img/skills/mobile/7-GIT.png","GIT Icon"],
-    ["./img/skills/mobile/8-Scrum.png","Scrum Icon"],
-    ["./img/skills/mobile/9-Material-Design.png","Material Design Icon"],
+    ["./img/skills/mobile/0-Angular.png","Angular Icon", "Angular"],
+    ["./img/skills/mobile/1-TypeScript.png","TypeScript Icon","TypeScript"],
+    ["./img/skills/mobile/2-JavaScript.png","JavaScript Icon","JavaScript"],
+    ["./img/skills/mobile/3-HTML.png","HTML Icon","HTML"],
+    ["./img/skills/mobile/4-CSS.png","CSS Icon","CSS"],
+    ["./img/skills/mobile/5-Rest-Api.png","RestAPI Icon","RestAPI"],
+    ["./img/skills/mobile/6-Firebase.png","Firebase Icon","Firebase"],
+    ["./img/skills/mobile/7-GIT.png","GIT Icon","GIT"],
+    ["./img/skills/mobile/8-Scrum.png","Scrum Icon","Scrum"],
+    ["./img/skills/mobile/9-Material-Design.png","Material Design Icon","Material Design"],
   ];
 
   currentlyLearning:string[][]=[

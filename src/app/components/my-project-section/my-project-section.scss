@@ -10,7 +10,7 @@
   margin-right: auto;
   padding: 40px clamp(1.25rem, 8vw, 6.81rem);
     h2{
-    padding: 16px;
+    padding-bottom: 80px;
     font-family: 'Anta';
     font-style: normal;
     font-weight: 400;
@@ -22,5 +22,44 @@
     order: 0;
     align-self: stretch;
     flex-grow: 0;
+  }
+  &__list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100%;
+    h3{
+      font-family: 'Josefin Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 1.2;
+      color: styles.$primary-color;
+      cursor: pointer;
+      transition: color 0.5s ease-in-out;
+      &:hover {
+        color: styles.$secondary-color;
+      }
+      &.active-project {
+        background-color: styles.$secondary-light-grey;
+        color: styles.$secondary-color;
+        padding: 30px;
+        border-radius: 15px 15px 0px 0px;
+      }
+    }
+  }
+  &__detail{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    img{
+      max-width: 360px;
+    }
   }
 }
