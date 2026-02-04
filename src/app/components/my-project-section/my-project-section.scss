@@ -9,6 +9,7 @@
   margin-left: auto;
   margin-right: auto;
   padding: 40px clamp(1.25rem, 8vw, 6.81rem);
+  z-index: 0;
     h2{
     padding-bottom: 80px;
     font-family: 'Anta';
@@ -25,17 +26,18 @@
   }
   &__list{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     align-content: center;
     flex-wrap: nowrap;
     flex-direction: row;
     width: 100%;
+    gap: 32px;
     h3{
       font-family: 'Josefin Sans';
       font-style: normal;
       font-weight: 500;
-      font-size: 30px;
+      font-size: clamp(16px, 2.5vw,30px);
       line-height: 1.2;
       color: styles.$primary-color;
       cursor: pointer;
@@ -44,7 +46,7 @@
         color: styles.$secondary-color;
       }
       &.active-project {
-        background-color: styles.$secondary-light-grey;
+        background-color: styles.$primary-color7percent;
         color: styles.$secondary-color;
         padding: 30px;
         border-radius: 15px 15px 0px 0px;
@@ -52,14 +54,225 @@
     }
   }
   &__detail{
-    display:flex;
+    display: flex;
     flex-direction: row;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 540px;
     flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    img{
-      max-width: 360px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 98vw;
+      background-color: styles.$primary-color7percent;
+      z-index: -1;
+    }
+
+    .info{
+      width: 50%;
+      padding: 16px;
+      display: flex;
+      gap: 15px;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: flex-start;
+      justify-content: flex-start;
+      gap: 32px;
+      h4{
+        font-family: 'Josefin Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 1.2;
+        color: styles.$secondary-color;
+      }
+      &____description{
+        width: 100%;
+
+      }
+      &__title{
+            margin-left: 15px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-content: center;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+      }
+      span{
+        font-family: 'Josefin Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.2;
+        color: styles.$secondary-color;
+        left: 56px;
+        width: calc(100% - 56px);
+        display: block;
+        margin-top: 16px;
+        min-height: 100px;
+      }
+    }
+    .screenshot{
+      width: 50%;
+      height: -webkit-fill-available;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: space-between;
+      align-items: center;
+      &__title{
+        width: 100%;
+        text-align: center;
+        margin-top: 16px;
+        font-family: 'Josefin Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 120%;
+        color: styles.$primary-color;
+      }
+      &__technologies{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        &__divIMG{
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          align-content: center;
+          align-items: center;
+          justify-content: center;
+          gap: 16px;
+            &__img{
+              width: auto;
+              height: auto;
+          }
+        }
+        p{
+          width: 100%;
+          margin-bottom: 16px;
+          font-family: 'Josefin Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 1.2;
+          text-align: center;
+          color: styles.$secondary-color;
+        }
+      }
+      &__image{
+        max-width: -webkit-fill-available;
+        border-radius: 32px;
+      }
+
+      .buttons{
+        width: 100%;
+        height: 96px;
+        bottom: 0px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        &__live{
+          cursor: pointer;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          padding: 13px 30px;
+          gap: 10px;
+          width: 134px;
+          height: 48px;
+          border: 1px solid #89BCD9;
+          border-radius: 30px;
+          flex: none;
+          order: 1;
+          flex-grow: 0;
+          font-family: 'Josefin Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 1.2;
+          color: styles.$secondary-dark-grey;
+          background-color: styles.$primary-color;
+          transition: background-color 0.3s ease;
+          &:hover{
+            background-color: styles.$secondary-color;
+          }
+        }
+        &__git{
+          cursor: pointer;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          padding: 13px 30px;
+          gap: 10px;
+          width: 134px;
+          height: 48px;
+          border: 1px solid styles.$primary-color;
+          border-radius: 30px;
+          flex: none;
+          order: 1;
+          flex-grow: 0;
+          font-family: 'Josefin Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 1.2;
+          color: styles.$primary-color;
+          transition: background-color 0.3s ease;
+          &:hover{
+            background-color: styles.$secondary-light-grey;
+          }
+        }
+      }
     }
   }
+}
+
+@media screen and (max-width:768px) {
+
+  .my-project-section{
+    &__detail{
+      flex-direction: column;
+      &::before {
+        width: 95vw;
+      }
+      .info{
+        width: 100%;
+        &__description{
+          span{
+            height: auto;
+          }
+        }
+      }
+      .screenshot{
+        width: 100%;
+        &__technologies{
+          padding-bottom: 16px;
+        }
+      }
+    }
+  }
+
 }

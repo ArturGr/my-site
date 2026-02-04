@@ -80,15 +80,15 @@ export class MyProjectSection extends MySkillsSection {
       properties:{
         duration:"x weeks",
         name:"JOIN - ongoing project",
-        about:"This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quae optio neque dignissimos eaque aliquid porro quaerat iusto repudiandae deleniti voluptatum harum, sapiente ipsa blanditiis ex nam eligendi. Amet, possimus!",
+        about:"This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.",
         workProcess:"test",
         groupWorkExperience: "test",
         technologies: [this.iconMobile[0][2],this.iconMobile[1][2],this.iconMobile[5][2],this.iconMobile[6][2],this.iconMobile[7][2]],
         technologiesIMG: [this.iconMobile[0][0],this.iconMobile[1][0],this.iconMobile[5][0],this.iconMobile[6][0],this.iconMobile[7][0]],
         technologiesALT:[this.iconMobile[0][1],this.iconMobile[1][1],this.iconMobile[5][1],this.iconMobile[6][1],this.iconMobile[7][1]],
-        img: "#",
-        git:"#",
-        live:"#",
+        img: "",
+        git:"",
+        live:"",
       }
     }
   ]

@@ -14,14 +14,58 @@
     <div class="my-project-section__detail">
       @let selected = projects[activeProject - 1];
 
-      <div class="screenshot">
-        <img [src]="selected.properties.img" [alt]="selected.properties.name">
-      </div>
-
       <div class="info">
-        <h4>{{selected.properties.name}}</h4>
-        <p>{{selected.properties.about}}</p>
+        <div class="info__description">
+          <div class="info__title">
+            <img src="./img/projects/Ellipse-8.png" alt="Ellipse Icon">
+            <h4>About the project</h4>
+          </div>
+          <span>{{selected.properties.about}}</span>
         </div>
+        <div class="info__description">
+          <div class="info__title">
+            <img src="./img/projects/Ellipse-8.png" alt="Ellipse Icon">
+            <h4>How I have organised my work process</h4>
+          </div>
+          <span>{{selected.properties.workProcess}}</span>
+        </div>
+        <div class="info__description">
+          <div class="info__title">
+            <img src="./img/projects/Ellipse-8.png" alt="Ellipse Icon">
+            <h4>My group work experience</h4>
+          </div>
+          <span>{{selected.properties.groupWorkExperience}}</span>
+        </div>
+      </div>
+      <div class="screenshot">
+        <p class="screenshot__title">{{selected.properties.name}}</p>
+        <div class="screenshot__technologies">
+          <p>Technologies</p>
+          <div class="screenshot__technologies__divIMG">
+            @for (img of selected.properties.technologiesIMG; track $index) {
+            <img
+              [src]="img"
+              [alt]="selected.properties.technologiesALT[$index]"
+              class="screenshot__technologies__img"
+              [title]="selected.properties.technologies[$index]"
+            >
+          }
+          </div>
+        </div>
+        @if (selected.properties.img !="") {
+          <img [src]="selected.properties.img" [alt]="selected.properties.name" class="screenshot__image">
+        }
+        @if (selected.properties.git !="") {
+          <div class="buttons">
+            <a href={{selected.properties.live}} target="_blank" rel="noopener">
+              <button class="buttons__live">Live Test</button>
+            </a>
+            <a href={{selected.properties.git}} target="_blank" rel="noopener">
+              <button class="buttons__git">GitHub</button>
+            </a>
+        </div>
+        }
+      </div>
     </div>
   </div>
 </div>

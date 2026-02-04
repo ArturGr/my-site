@@ -1,4 +1,5 @@
 $primary-color: #89BCD9;
+$primary-color7percent: rgb(137, 188, 217, 7%);
 $secondary-color: #F8F5EC;
 $secondary-dark-grey: #262E34;
 $secondary-light-grey: #f8f5ec12;
@@ -51,6 +52,10 @@ $white: white;
   align-content: center;
   align-items: center;
   justify-content: center;
+}
+
+button{
+  cursor: pointer;
 }
 
 @media screen and (max-width:768px) {
