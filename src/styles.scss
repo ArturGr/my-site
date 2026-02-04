@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Josefin Sans';
+  src: url('/fonts/JosefinSans-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Anta';
+  src: url('/fonts/Anta-Regular.ttf') format('truetype');
+}
+
 $primary-color: #89BCD9;
 $primary-color7percent: rgb(137, 188, 217, 7%);
 $secondary-color: #F8F5EC;

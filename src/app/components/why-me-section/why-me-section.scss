@@ -53,9 +53,9 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                width: 140%; // Tło nieco większe od ikony
+                width: 140%;
                 height: 140%;
-                background-image: url('../../../../public/img/why-me-icons/Ellipse-24.png'); // Twoja elipsa
+                background-image: url('../../../../public/img/why-me-icons/Ellipse-24.png');
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
@@ -143,16 +143,21 @@ button{
   align-items: center;
   padding: 13px 30px;
   gap: 10px;
-  width: 134px;
+  width: 136px;
   height: 48px;
   border: 1px solid styles.$primary-color;
   border-radius: 30px;
   flex: none;
   order: 1;
   flex-grow: 0;
+  font-family: 'Josefin Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
   color: styles.$primary-color;
   position: relative;
-  left: calc(50% - 134px / 2);
+  left: calc(50% - 136px / 2);
   &:hover{
   background-color: styles.$secondary-light-grey;
   }
@@ -182,5 +187,8 @@ button{
     display: none;
   }
 }
+
+
+
 
 
