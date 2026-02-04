@@ -164,15 +164,24 @@ button{
     margin-top: 32px;
     padding: 13px 30px;
     gap: 10px;
-    width: 134px;
+    width: 136px;
     height: 48px;
     border: 1px solid styles.$primary-color;
     border-radius: 30px;
     flex: none;
     order: 1;
     flex-grow: 0;
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
     background-color: styles.$primary-color;
     color: styles.$secondary-dark-grey;
+    transition: background-color 0.3s ease;
+    &:hover{
+      background-color: styles.$secondary-color;
+    }
   }
 }
 
