@@ -7,10 +7,11 @@ import { WhyMeSection } from './components/why-me-section/why-me-section';
 import { MySkillsSection } from "./components/my-skills-section/my-skills-section";
 import { MyProjectSection } from './components/my-project-section/my-project-section';
 import { ContactMeSection } from './components/contact-me-section/contact-me-section';
+import { MyReferences } from "./components/my-references/my-references";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MenuBar, HeroSection, Footer, WhyMeSection, MySkillsSection, MyProjectSection, ContactMeSection],
+  imports: [RouterOutlet, MenuBar, HeroSection, Footer, WhyMeSection, MySkillsSection, MyProjectSection, ContactMeSection, MyReferences],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
