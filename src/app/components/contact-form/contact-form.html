@@ -1,1 +1,68 @@
-<p>contact-form works!</p>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+  <div class="input-row">
+    <div class="input-group" [class.error]="isInvalid('name')" [class.success]="isValid('name')">
+      <label for="name">
+        @if (isInvalid('name')) {
+          <span class="error-text">Your name is required</span>
+        } @else {
+          Your name
+        }
+      </label>
+      <div class="input-wrapper">
+        <input type="text" id="name" formControlName="name" placeholder="Enter your name">
+        @if (isValid('name')) {
+          <img src="/img/contact/Box-correct.png" class="status-icon" alt="valid">
+        }
+      </div>
+    </div>
+
+    <div class="input-group" [class.error]="isInvalid('email')" [class.success]="isValid('email')">
+      <label for="email">
+        @if (isInvalid('email')) {
+          <span class="error-text">Your email is required</span>
+        } @else {
+          Your Email
+        }
+      </label>
+      <div class="input-wrapper">
+        <input type="email" id="email" formControlName="email" placeholder="Enter your email">
+        @if (isValid('email')) {
+          <img src="/img/contact/Box-correct.png" class="status-icon" alt="valid">
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group full-width" [class.error]="isInvalid('message')" [class.success]="isValid('message')">
+    <label for="message">
+      @if (isInvalid('message')) {
+        <span class="error-text">Your message is required</span>
+      } @else {
+        Your Message
+      }
+    </label>
+    <div class="input-wrapper">
+      <textarea id="message" formControlName="message" placeholder="How can I help you?"></textarea>
+      @if (isValid('message')) {
+        <img src="/img/contact/Box-correct.png" class="status-icon" alt="valid">
+      }
+    </div>
+  </div>
+
+  <div class="privacy-section" [class.error]="isInvalid('privacy')">
+    <label class="checkbox-container">
+      <input type="checkbox" formControlName="privacy">
+      <span class="custom-checkbox"></span>
+      <div class="privacy-text">
+        <p>I've read the <a href="#">privacy policy</a> and agree to the processing of my data as outlined.</p>
+        @if (isInvalid('privacy')) {
+          <span class="error-message">Please accept the privacy policy.</span>
+        }
+      </div>
+    </label>
+  </div>
+
+  <div class="submit-area">
+    <button type="submit" [disabled]="!contactForm.valid">Send</button>
+  </div>
+</form>

@@ -7,14 +7,135 @@
 
 .contact-me-section{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+  align-content: space-between;
   justify-content: center;
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
-  padding: 40px clamp(1.25rem, 8vw, 6.81rem);
-  img{
+  padding: 40px clamp(1.25rem, 8vw, 6.81rem) 80px;
+  h3{
+    font-family: 'Anta';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 54px;
+    line-height: 1.2;
+    color: styles.$primary-color;
+    margin-bottom: 80px;
     width: 100%;
+    text-align: center;
+  }
+  &__inhalt{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: space-around;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2%;
+    margin-bottom: 48px;
+    &__text{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: flex-start;
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: 48%;
+      height: auto;
+      p{
+        font-family: 'Josefin Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.2;
+        text-align: justify;
+        color: styles.$secondary-color;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      }
+    }
+    &__icon{
+      width: 48%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      a {
+        text-decoration: none;
+        color: inherit;
+        width: fit-content;
+        display: block;
+      }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        cursor: pointer;
+        width: fit-content;
+        .email-icon, .tel-icon {
+          width: 32px;
+          height: 32px;
+          position: relative;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          transition: transform 0.1s ease;
+          &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+          }
+          &.hover::after {
+            opacity: 1;
+          }
+          &.click {
+            transform: scale(0.85);
+            background-image: url("/img/contact/email/Click.png") !important;
+            &::after {
+            opacity: 0 !important;
+            }
+          }
+        }
+        .email-icon {
+          background-image: url("/img/contact/email/Default.png");
+          &::after {
+            background-image: url("/img/contact/email/Hover.png");
+          }
+          &.click {
+            background-image: url("/img/contact/email/Click.png") !important;
+            &::after {
+              opacity: 0 !important;
+            }
+          }
+        }
+        .tel-icon {
+          background-image: url("/img/contact/tel/Default.png");
+          &::after {
+            background-image: url("/img/contact/tel/Hover.png");
+          }
+        }
+        p {
+          font-family: 'Josefin Sans', sans-serif;
+          font-size: 20px;
+          color: styles.$secondary-color;
+          transition: color 0.5s ease-in-out;
+          margin: 0;
+          &.active {
+            color: styles.$primary-color;
+          }
+        }
+        &:hover p {
+          color: styles.$primary-color;
+        }
+      }
+    }
   }
 }
