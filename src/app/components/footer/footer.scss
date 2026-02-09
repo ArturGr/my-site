@@ -24,6 +24,22 @@
         opacity: 0.8;
       }
     }
+    &__link{
+      font-family: 'Josefin Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.2;
+      color: styles.$secondary-dark-grey;
+      opacity: 0.8;
+      transition: color 0.2s ease-in-out;
+      &:hover{
+        color: rgba(styles.$secondary-color, 0.7);
+      }
+      &:active{
+        color: styles.$secondary-color;
+      }
+    }
     &__social-btn{
       --flex-direction: row;
       --githubDef:url("/img/social-media-buttons/github/dark.png");
@@ -60,7 +76,6 @@
         --githubDef:url("/img/social-media-buttons/github/mobile.png");
         --linkedinbDef:url("/img/social-media-buttons/linkedin/mobile.png");
         --emailDef:url("/img/social-media-buttons/email/mobile.png");
+      }
     }
-    }
-
   }

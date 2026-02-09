@@ -54,7 +54,7 @@
       <input type="checkbox" formControlName="privacy">
       <span class="custom-checkbox"></span>
       <div class="privacy-text">
-        <p>I've read the <a href="#">privacy policy</a> and agree to the processing of my data as outlined.</p>
+        <p>I've read the <a [routerLink]="['/privacy-policy']" target="_self">privacy policy</a> and agree to the processing of my data as outlined.</p>
         @if (isInvalid('privacy')) {
           <span class="error-message">Please accept the privacy policy.</span>
         }

@@ -79,6 +79,7 @@ button{
 .footer{
   height: 243px;
   flex-direction: column;
+  top: var(--top-offset, 0px);
 }
 
 }
