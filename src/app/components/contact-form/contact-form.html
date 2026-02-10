@@ -1,4 +1,33 @@
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+@if (submissionStatus !== 'idle') {
+  <div class="feedback-overlay"
+       [ngClass]="submissionStatus"
+       (click)="closeFeedback()">
+
+    @if (submissionStatus === 'sending') {
+      <div class="loader-content" (click)="$event.stopPropagation()">
+        <div class="spinner"></div>
+        <p>Sending message...</p>
+      </div>
+    }
+
+    @if (submissionStatus === 'success') {
+      <div class="status-msg" (click)="$event.stopPropagation()">
+        <img src="/img/contact/Box-correct.png" alt="success">
+        <p>Your message has been sent!</p>
+        <div class="close-icon-div"></div>
+      </div>
+    }
+
+    @if (submissionStatus === 'error') {
+      <div class="status-msg" (click)="$event.stopPropagation()">
+        <p class="error-color">Something went wrong. Try again.</p>
+        <div class="close-icon-div"></div>
+      </div>
+    }
+  </div>
+}
+
   <div class="input-row">
     <div class="input-group" [class.error]="isInvalid('name')" [class.success]="isValid('name')">
       <label for="name">
@@ -63,6 +92,8 @@
   </div>
 
   <div class="submit-area">
-    <button type="submit" [disabled]="!contactForm.valid">Send</button>
+    <button type="submit" [disabled]="!contactForm.valid || submissionStatus === 'sending'">
+      Send
+    </button>
   </div>
 </form>

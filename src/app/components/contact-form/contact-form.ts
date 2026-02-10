@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FormState } from '../../services/form-state';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact-form',
@@ -13,10 +14,11 @@ import { FormState } from '../../services/form-state';
 })
 export class ContactForm implements OnInit, OnDestroy {
   contactForm: FormGroup;
-
+  submissionStatus: 'idle' | 'sending' | 'success' | 'error' = 'idle';
   constructor(
     private fb: FormBuilder,
-    private formService: FormState
+    private formService: FormState,
+    private http: HttpClient
   ) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -50,12 +52,47 @@ export class ContactForm implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    if (this.contactForm.valid) {
-      console.log('Formularz wysłany:', this.contactForm.value);
-      this.formService.clear();
+  //  if (this.contactForm.valid) {
+  //     this.submissionStatus = 'sending';
+  //     const endpoint = "https://artur-groblicki.developerakademie.net/Portfolio/php/send_mail.php";
+  //     this.http.post(endpoint, this.contactForm.value).subscribe({
+  //       next: (response) => {
+  //         this.submissionStatus = 'success';
+  //         this.formService.clear();
+  //         this.contactForm.reset();
+  //         setTimeout(() => this.submissionStatus = 'idle', 5000);
+  //       },
+  //       error: (error) => {
+  //         this.submissionStatus = 'error';
+  //         console.error('Błąd!', error);
+  //         setTimeout(() => this.submissionStatus = 'idle', 3000);
+  //       }
+  //     });
+  //   } else {
+  //     this.contactForm.markAllAsTouched();
+  //   }
+if (this.contactForm.valid) {
+    this.submissionStatus = 'sending';
+
+    // SYMULACJA TESTOWA (Test nr 1)
+    setTimeout(() => {
+      this.submissionStatus = 'success';
       this.contactForm.reset();
-    } else {
-      this.contactForm.markAllAsTouched();
-    }
+      this.formService.clear();
+      setTimeout(() => {
+        this.closeFeedback();
+      }, 2000);
+
+    }, 2000);
   }
 }
+
+  // Funkcja ręcznego zamykania
+  closeFeedback() {
+  if (this.submissionStatus !== 'sending') {
+    this.submissionStatus = 'idle';
+  }
+}
+}
+
+

@@ -4,7 +4,9 @@
   height: auto;
   background-color: styles.$secondary-dark-grey;
 }
+
 .contact-form {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -23,7 +25,7 @@
     gap: 8px;
     flex: 1;
     label {
-      font-family: 'Josefin Sans', sans-serif;
+      font-family: 'Josefin Sans';
       font-size: 16px;
       color: styles.$primary-color;
       padding-left: 25px;
@@ -42,7 +44,7 @@
         border-radius: 40px;
         padding: 18px 25px;
         color: styles.$secondary-color;
-        font-family: 'Josefin Sans', sans-serif;
+        font-family: 'Josefin Sans';
         font-size: 18px;
         outline: none;
         transition: border-color 0.3s ease;
@@ -50,7 +52,7 @@
           color: rgba(styles.$secondary-color, 0.3);
         }
         &:focus {
-          border-color: styles.$white;
+          background-color: styles.$primary-color7percent;
         }
       }
       textarea {
@@ -102,12 +104,13 @@
         display: flex;
         flex-direction: column;
         gap: 4px;
+        height: 62px;
         p {
           margin: 0;
-          font-family: 'Josefin Sans', sans-serif;
+          font-family: 'Josefin Sans';
           font-size: 16px;
           color: styles.$secondary-color;
-          line-height: 1.4;
+          line-height: 1.2;
           a {
             color: styles.$primary-color;
             text-decoration: none;
@@ -119,7 +122,7 @@
         .error-message {
           color: styles.$error;
           font-size: 14px;
-          font-family: 'Josefin Sans', sans-serif;
+          font-family: 'Josefin Sans';
         }
       }
     }
@@ -143,17 +146,13 @@
     button {
       padding: 12px 50px;
       background: transparent;
-      border: 1px solid styles.$secondary-color;
-      color: styles.$secondary-color;
+      border: 1px solid styles.$primary-color;
+      color: styles.$primary-color;
       border-radius: 40px;
-      font-family: 'Josefin Sans', sans-serif;
+      font-family: 'Josefin Sans';
       font-size: 20px;
       cursor: pointer;
       transition: all 0.3s ease;
-      &:hover:not(:disabled) {
-        border-color: styles.$primary-color;
-        color: styles.$primary-color;
-      }
       &:disabled {
         opacity: 0.3;
         cursor: not-allowed;
@@ -161,44 +160,60 @@
       }
     }
   }
-}
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  .modal-content {
-    background: styles.$secondary-dark-grey;
-    border: 1px solid styles.$primary-color;
-    padding: 40px;
-    border-radius: 30px;
-    text-align: center;
-    max-width: 400px;
-    color: styles.$secondary-color;
-    font-family: 'Josefin Sans', sans-serif;
-    h3 {
-      color: styles.$primary-color;
-      margin-bottom: 16px;
-      font-family: 'Anta';
-      font-size: 28px;
+  .feedback-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(styles.$secondary-dark-grey, 0.9);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease;
+
+    .loader-content, .status-msg {
+      text-align: center;
+      p { margin-top: 15px; color: styles.$primary-color; font-family: 'Josefin Sans'; }
     }
-    button {
-      margin-top: 24px;
-      padding: 12px 40px;
-      border-radius: 40px;
-      border: none;
-      background: styles.$primary-color;
-      color: styles.$secondary-dark-grey;
-      font-weight: bold;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-      &:hover {
-        transform: scale(1.05);
-      }
+
+    .error-color { color: #ff4d4d !important; }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(styles.$primary-color, 0.1);
+      border-top: 4px solid styles.$primary-color;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
     }
   }
 }
+
+.status-msg {
+  position: relative;
+  padding: 50px 30px 30px 30px !important;
+  .close-icon-div {
+    position: absolute;
+    top: 15px;    // Odsunięcie od góry
+    right: 15px;  // Odsunięcie od prawej
+    width: 35px;  // Wymagany rozmiar
+    height: 35px; // Wymagany rozmiar
+    cursor: pointer;
+    z-index: 20;  // Upewniamy się, że jest na wierzchu
+    background-image: url('/burger-menu/close.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    &:hover, &:active {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }

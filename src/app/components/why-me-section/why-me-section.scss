@@ -174,13 +174,20 @@ button{
       &__animated{
         width: 100%;
         flex-direction: row;
+        height: 70px;
+        &--text{
+          span{
+            font-size: 18px;
+          }
+        }
       }
       &__description{
         width: 100%;
       }
     }
     h2{
-      padding-bottom: 32px;
+      font-size: 32px;
+      padding-bottom: 40px;
     }
   }
 
@@ -188,8 +195,3 @@ button{
     display: none;
   }
 }
-
-
-
-
-

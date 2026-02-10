@@ -3,14 +3,19 @@
     <h2>My Projects</h2>
     <div class="my-project-section__list">
       @for (item of projects; track item.id) {
-      <h3
-        (click)="activeProject = item.id"
-        [class.active-project]="activeProject === item.id">
-        {{item.id}}. {{item.properties.name}}
-      </h3>
+        @if(item.id <= 4){
+          <h3
+          (click)="activeProject = item.id"
+          [class.active-project]="activeProject === item.id">
+          @if(isMobile){
+            {{item.id}}. Project
+          } @else{
+            {{item.id}}. {{item.properties.name}}
+          }
+          </h3>
+        }
       }
     </div>
-
     <div class="my-project-section__detail">
       @let selected = projects[activeProject - 1];
 
@@ -19,6 +24,7 @@
           <div class="info__title">
             <img src="./img/projects/Ellipse-8.png" alt="Ellipse Icon">
             <h4>About the project</h4>
+            @if(!isMobile){<p>Duration: {{selected.properties.duration}}</p>}
           </div>
           <span>{{selected.properties.about}}</span>
         </div>
@@ -36,34 +42,66 @@
           </div>
           <span>{{selected.properties.groupWorkExperience}}</span>
         </div>
-      </div>
-      <div class="screenshot">
-        <p class="screenshot__title">{{selected.properties.name}}</p>
-        <div class="screenshot__technologies">
-          <p>Technologies</p>
-          <div class="screenshot__technologies__divIMG">
-            @for (img of selected.properties.technologiesIMG; track $index) {
-            <img
-              [src]="img"
-              [alt]="selected.properties.technologiesALT[$index]"
-              class="screenshot__technologies__img"
-              [title]="selected.properties.technologies[$index]"
-            >
-          }
+        @if(isMobile){
+          <div class="buttons">
+            @if (selected.properties.live !="" && selected.properties.live !=null) {
+              <a href={{selected.properties.live}} target="_blank" rel="noopener">
+                <button class="buttons__live">Live Test</button>
+              </a>
+            }
+            @if (selected.properties.git !="" && selected.properties.git !=null) {
+              <a href={{selected.properties.git}} target="_blank" rel="noopener">
+                <button class="buttons__git">GitHub</button>
+              </a>
+            }
           </div>
+        }
+      </div>
+
+      <div class="screenshot">
+        @if(isMobile){<p class="screenshot__title">{{selected.properties.name}}</p>}
+        <div class="screenshot__technologies">
+          @if(!isMobile){
+            <p>Technologies</p>
+            <div class="screenshot__technologies__divIMG">
+              @for (img of selected.properties.technologiesIMG; track $index) {
+                <img
+                  [src]="img"
+                  [alt]="selected.properties.technologiesALT[$index]"
+                  class="screenshot__technologies__img"
+                  [title]="selected.properties.technologies[$index]"
+                >
+              }
+            </div>
+          } @else {
+            <p>Technologies:
+              @for (img of selected.properties.technologies; track $index) {
+                @if($index < selected.properties.technologies.length-1){
+                  {{selected.properties.technologies[$index]}},
+                } @else{
+                  {{selected.properties.technologies[$index]}}
+                }
+              }
+            </p>
+            <p>Duration: {{selected.properties.duration}}</p>
+          }
         </div>
-        @if (selected.properties.img !="") {
+        @if (selected.properties.img !="" && selected.properties.img !=null) {
           <img [src]="selected.properties.img" [alt]="selected.properties.name" class="screenshot__image">
         }
-        @if (selected.properties.git !="") {
+        @if(!isMobile){
           <div class="buttons">
-            <a href={{selected.properties.live}} target="_blank" rel="noopener">
-              <button class="buttons__live">Live Test</button>
-            </a>
-            <a href={{selected.properties.git}} target="_blank" rel="noopener">
-              <button class="buttons__git">GitHub</button>
-            </a>
-        </div>
+            @if (selected.properties.live !="" && selected.properties.live !=null) {
+              <a href={{selected.properties.live}} target="_blank" rel="noopener">
+                <button class="buttons__live">Live Test</button>
+              </a>
+            }
+            @if (selected.properties.git !="" && selected.properties.git !=null) {
+              <a href={{selected.properties.git}} target="_blank" rel="noopener">
+                <button class="buttons__git">GitHub</button>
+              </a>
+            }
+          </div>
         }
       </div>
     </div>
