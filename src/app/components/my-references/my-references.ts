@@ -21,27 +21,27 @@ export class MyReferences {
     {
       id:1,
       properties:{
-        personName:"Sahra Mueller",
-        projectName:"DA Bublle",
-        description:"Claudia had to develop, format and deliver content in collaboration with the team members. She is a reliable and friendly person.",
+        personName:"Lorem ipsum",
+        projectName:"Lorem ipsum dolor",
+        description:"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea.",
         linkedProfile:"#",
       }
     },
     {
       id:2,
       properties:{
-        personName:"James Rugman",
-        projectName:"Join",
-        description:"Claudia is a reliable and friendly person. Works in a structured way and write a clear code. I recommend her as a colleague.",
+        personName:"Lorem ipsum",
+        projectName:"Lorem ipsum dolor",
+        description:"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea",
         linkedProfile:"#",
       }
     },
     {
       id:3,
       properties:{
-        personName:"Evelyn Marx",
-        projectName:"Sharkie",
-        description:"She is a trustworthy teamplayer and can cope with the stress of deadlines. Structured work and clear code.",
+        personName:"Lorem ipsum",
+        projectName:"Lorem ipsum dolor",
+        description:"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea",
         linkedProfile:"#",
       }
     },
