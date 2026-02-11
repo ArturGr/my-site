@@ -10,7 +10,7 @@
   margin-right: auto;
   padding: 40px clamp(1.25rem, 8vw, 6.81rem);
   z-index: 0;
-    h2{
+  h2{
     padding-bottom: 80px;
     font-family: 'Anta';
     font-style: normal;
@@ -94,25 +94,24 @@
       }
       &____description{
         width: 100%;
-
       }
       &__title{
-            margin-left: 15px;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            align-content: center;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 15px;
-            p{
-              font-family: 'Josefin Sans';
-              font-style: normal;
-              font-weight: 400;
-              font-size: 18px;
-              line-height: 1.2;
-              color: styles.$secondary-color;
-            }
+        margin-left: 15px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 15px;
+        p{
+          font-family: 'Josefin Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 1.2;
+          color: styles.$secondary-color;
+        }
       }
       span{
         font-family: 'Josefin Sans';
@@ -258,11 +257,6 @@
   }
 }
 
-.background-for-details{
-  width: 100%;
-  background-color: styles.$primary-color7percent;
-}
-
 @media screen and (max-width:768px) {
 
   .my-project-section{
@@ -298,12 +292,11 @@
             padding-left: 32px;
             margin-bottom: 0px;
           }
-
         }
         &__title{
-            text-align: left;
-            padding-left: 32px;
-            margin-bottom: 16px;
+          text-align: left;
+          padding-left: 32px;
+          margin-bottom: 16px;
         }
         &__image{
           padding: 16px;
@@ -311,12 +304,14 @@
       }
     }
   }
+
   .buttons{
     gap: 8px;
   }
 }
 
 @media screen and (max-width:390px) {
+
   .my-project-section__list{
     gap:2px;
     h3{

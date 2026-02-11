@@ -16,11 +16,8 @@
         }
       }
     </div>
-
-
       <div class="my-project-section__detail">
         @let selected = projects[activeProject - 1];
-
         <div class="info">
           <div class="info__description">
             <div class="info__title">
@@ -59,7 +56,6 @@
             </div>
           }
         </div>
-
         <div class="screenshot">
           @if(isMobile){<p class="screenshot__title">{{selected.properties.name}}</p>}
           <div class="screenshot__technologies">
@@ -107,6 +103,5 @@
           }
         </div>
       </div>
-
   </div>
 </div>
