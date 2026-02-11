@@ -31,15 +31,17 @@
   <div class="input-row">
     <div class="input-group" [class.error]="isInvalid('name')" [class.success]="isValid('name')">
       <label for="name">
-        @if (isInvalid('name')) {
-          <span class="error-text">Your name is required</span>
-        } @else {
-          Your name
+         @if(!isMobile) {
+          @if (isInvalid('name')) {
+            <span class="error-text">Your name is required</span>
+          } @else {
+            Your name
+          }
         }
       </label>
       <div class="input-wrapper">
-        <input type="text" id="name" formControlName="name" placeholder="Enter your name">
-        @if (isValid('name')) {
+        <input type="text" id="name" formControlName="name" [placeholder]="isMobile && isInvalid('name') ? 'Your name is required' : 'Enter your name'">
+        @if (isValid('name') && !isMobile) {
           <img src="/img/contact/Box-correct.png" class="status-icon" alt="valid">
         }
       </div>
@@ -47,15 +49,17 @@
 
     <div class="input-group" [class.error]="isInvalid('email')" [class.success]="isValid('email')">
       <label for="email">
-        @if (isInvalid('email')) {
-          <span class="error-text">Your email is required</span>
-        } @else {
-          Your Email
+        @if(!isMobile) {
+          @if (isInvalid('email')) {
+            <span class="error-text">Your email is required</span>
+          } @else {
+            Your Email
+          }
         }
       </label>
       <div class="input-wrapper">
-        <input type="email" id="email" formControlName="email" placeholder="Enter your email">
-        @if (isValid('email')) {
+        <input type="email" id="email" formControlName="email" [placeholder]="isMobile && isInvalid('email') ? 'Your email is required' : 'Enter your email'">
+        @if (isValid('email') && !isMobile) {
           <img src="/img/contact/Box-correct.png" class="status-icon" alt="valid">
         }
       </div>
@@ -64,15 +68,18 @@
 
   <div class="input-group full-width" [class.error]="isInvalid('message')" [class.success]="isValid('message')">
     <label for="message">
-      @if (isInvalid('message')) {
-        <span class="error-text">Your message is required</span>
-      } @else {
-        Your Message
+      @if (!isMobile) {
+        @if (isInvalid('message')) {
+          <span class="error-text">Your message is required</span>
+        } @else {
+          Your Message
+        }
       }
     </label>
     <div class="input-wrapper">
-      <textarea id="message" formControlName="message" placeholder="How can I help you?"></textarea>
-      @if (isValid('message')) {
+      <textarea id="message" formControlName="message" [placeholder]="isMobile && isInvalid('message') ? 'Your message is required' : 'How can I help you?'"
+      ></textarea>
+      @if (isValid('message') && !isMobile) {
         <img src="/img/contact/Box-correct.png" class="status-icon" alt="valid">
       }
     </div>

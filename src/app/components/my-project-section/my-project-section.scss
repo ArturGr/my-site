@@ -322,3 +322,14 @@
     }
   }
 }
+
+@media screen and (min-width:1440.1px) {
+
+  .my-project-section{
+    &__detail{
+      &:before {
+        width: 99.5vw;
+      }
+    }
+  }
+}

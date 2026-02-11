@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ContactForm } from "../contact-form/contact-form";
+import { MenuBar } from '../menu-bar/menu-bar';
 
 type Icon = {
   email:{
@@ -19,7 +20,7 @@ type Icon = {
   templateUrl: './contact-me-section.html',
   styleUrl: './contact-me-section.scss',
 })
-export class ContactMeSection {
+export class ContactMeSection extends MenuBar{
   icon:Icon={
     email:{
       default: "./img/contact/email/Default.png",

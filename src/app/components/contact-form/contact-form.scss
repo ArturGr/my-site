@@ -70,6 +70,13 @@
     &.error .input-wrapper input,
     &.error .input-wrapper textarea {
       border-color: styles.$error;
+      @media screen and (max-width:768px) {
+        &::placeholder{color: styles.$error;opacity: 1;}
+        &::-webkit-input-placeholder {color: styles.$error;}
+        &::-moz-placeholder {color: styles.$error;}
+        &::-ms-input-placeholder {color: styles.$error;}
+        &::-ms-input-placeholder {color: styles.$error;}
+      }
     }
   }
   .privacy-section {

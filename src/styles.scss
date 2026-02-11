@@ -83,3 +83,20 @@ button{
 }
 
 }
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: $primary-color7percent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary-color;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $primary-color7percent;
+}

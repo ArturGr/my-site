@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FormState } from '../../services/form-state';
 import { HttpClient } from '@angular/common/http';
+import { Menu } from '../../services/menu';
 
 @Component({
   selector: 'app-contact-form',
@@ -15,6 +16,12 @@ import { HttpClient } from '@angular/common/http';
 export class ContactForm implements OnInit, OnDestroy {
   contactForm: FormGroup;
   submissionStatus: 'idle' | 'sending' | 'success' | 'error' = 'idle';
+  protected menuService = inject(Menu);
+
+  get isMobile() {
+    return this.menuService.isMobile();
+  }
+
   constructor(
     private fb: FormBuilder,
     private formService: FormState,

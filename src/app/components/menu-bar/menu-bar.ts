@@ -1,5 +1,5 @@
 import { MyLogo } from './../my-logo/my-logo';
-import { Component, signal, HostListener, inject} from '@angular/core';
+import { Component, signal, HostListener, effect, inject} from '@angular/core';
 import { Menu } from '../../services/menu';
 import { Router } from '@angular/router';
 
@@ -26,7 +26,14 @@ export class MenuBar {
   protected menuService = inject(Menu);
   isMobile: boolean = window.innerWidth <= 768;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    effect(() => {
+      const isOpen = this.menuService.isMenuOpen();
+      if (!isOpen && !this.isAnimating) {
+        this.path.set(this.imageList[0]);
+      }
+    });
+  }
 
   get isMenuOpen() {
     return this.menuService.isMenuOpen();
@@ -59,10 +66,17 @@ export class MenuBar {
 scrollToSection(sectionId: string, activedBtn: string) {
   this.activedButton = activedBtn;
   this.isManualScrolling = true;
-
-  // Sprawdzamy, czy element istnieje w obecnym widoku
+  if (sectionId === "hero-section") {
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    setTimeout(() => {
+      this.isManualScrolling = false;
+      this.activedButton = '';
+    }, 800);
+    return;
+  }
   const ELEMENT = document.getElementById(sectionId);
-
   if (ELEMENT) {
     this.animateScroll(ELEMENT);
   } else {
@@ -83,21 +97,17 @@ private animateScroll(ELEMENT: HTMLElement) {
   if (window.innerWidth <= 768) {
     headerHeight = 0;
   }
-
   const START_Y = window.scrollY;
   const TARGET_Y = (ELEMENT.getBoundingClientRect().top + START_Y) - headerHeight;
   const DISTANCE = TARGET_Y - START_Y;
   const DURATION = 800;
   let startTimestamp: number;
-
   const STEP = (currentTimestamp: number) => {
     if (!startTimestamp) startTimestamp = currentTimestamp;
     const ELAPSED = currentTimestamp - startTimestamp;
     const PROGRESS = Math.min(ELAPSED / DURATION, 1);
     const BACK_PROGRESS = this.easeOutBack(PROGRESS);
-
     window.scrollTo(0, START_Y + (DISTANCE * BACK_PROGRESS));
-
     if (PROGRESS < 1) {
       window.requestAnimationFrame(STEP);
     } else {
@@ -106,7 +116,6 @@ private animateScroll(ELEMENT: HTMLElement) {
       }, 2000);
     }
   };
-
   window.requestAnimationFrame(STEP);
 }
 
@@ -139,7 +148,19 @@ private animateScroll(ELEMENT: HTMLElement) {
   //funkcja logujaca, ktora sekcja jest widocyna - do uprzatnienia/uproszczenia
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    if (this.isManualScrolling) return;
+    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+    if (scrollPosition < 300) {
+      if (this.activedButton !== '') {
+        this.activedButton = '';
+      }
+      if (scrollPosition === 0) {
+        this.isManualScrolling = false;
+      }
+      return;
+    }
+    if (this.isManualScrolling) {
+      return;
+    }
     const SECTIONS = document.querySelectorAll('.scroll-section');
     const DETECTION_LINE = window.innerHeight *0.3;
     let found = false;
@@ -155,16 +176,6 @@ private animateScroll(ELEMENT: HTMLElement) {
     });
     if (!found) {
       this.activedButton = "";
-    }
-  }
-
-  // funkcja przelaczajaca dostepnosc i reakcje burger menu
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    const width = window.innerWidth;
-    this.isMobile = width <= 768;
-    if (width >= 768 && this.isMenuOpen) {
-      this.toggleMenu();
     }
   }
 }
