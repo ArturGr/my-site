@@ -62,14 +62,14 @@
     width: 100%;
     min-height: 540px;
     flex-wrap: nowrap;
-    &::before {
+    &:before {
       content: "";
       position: absolute;
       top: 0;
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
-      width: 98vw;
+      width: calc(100% + 2 * clamp(1.25rem, 8vw, 6.81rem));
       background-color: styles.$primary-color7percent;
       z-index: -1;
     }
@@ -188,8 +188,6 @@
         max-width: -webkit-fill-available;
         border-radius: 32px;
       }
-
-
     }
   }
 }
@@ -260,6 +258,11 @@
   }
 }
 
+.background-for-details{
+  width: 100%;
+  background-color: styles.$primary-color7percent;
+}
+
 @media screen and (max-width:768px) {
 
   .my-project-section{
@@ -270,9 +273,6 @@
     }
     &__detail{
       flex-direction: column-reverse;
-      &::before {
-        width: 95vw;
-      }
       .info{
         width: 100%;
         &__description{
@@ -305,8 +305,14 @@
             padding-left: 32px;
             margin-bottom: 16px;
         }
+        &__image{
+          padding: 16px;
+        }
       }
     }
+  }
+  .buttons{
+    gap: 8px;
   }
 }
 
