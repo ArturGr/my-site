@@ -3,10 +3,11 @@ import { Footer } from '../footer/footer';
 import { MenuBar } from '../menu-bar/menu-bar';
 import { Router } from '@angular/router';
 import { Menu } from '../../services/menu';
+import { MobileMenu } from '../mobile-menu/mobile-menu';
 
 @Component({
   selector: 'app-privacy-policy',
-  imports: [Footer, MenuBar],
+  imports: [Footer, MenuBar, MobileMenu],
   templateUrl: './privacy-policy.html',
   styleUrl: './privacy-policy.scss',
 })
@@ -16,7 +17,9 @@ export class PrivacyPolicy {
   get isMobile() {
     return this.menuService.isMobile();
   }
-
+  get isMenuOpen(){
+    return this.menuService.isMenuOpen();
+  }
   goHome() {
     this.router.navigate(['/']).then(() => {
       window.scrollTo(0, 0);
