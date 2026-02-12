@@ -27,6 +27,11 @@ export class Menu {
         this.setMenuState(false);
       }
     });
+
+    const savedLang = localStorage.getItem('lang');
+    if (savedLang) {
+      this.actualLanguage.set(savedLang);
+    }
   }
 
   toggle() {
@@ -34,5 +39,13 @@ export class Menu {
   }
   setMenuState(state: boolean) {
     this._isMenuOpen.set(state);
+  }
+
+  actualLanguage = signal<string>('EN');
+
+  changeLanguage(newLang: string) {
+    if (newLang === this.actualLanguage()) return;
+    this.actualLanguage.set(newLang);
+    localStorage.setItem('lang', newLang);
   }
 }

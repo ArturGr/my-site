@@ -73,19 +73,18 @@ button{
 
 @media screen and (max-width:768px) {
 
-.sticky{
+  .sticky{
     position: absolute;
     top: 0px;
     z-index: 0;
     width: 100%;
-}
+  }
 
-.footer{
-  height: 243px;
-  flex-direction: column;
-  top: var(--top-offset, 0px);
-}
-
+  .footer{
+    height: 243px;
+    flex-direction: column;
+    top: var(--top-offset, 0px);
+  }
 }
 
 ::-webkit-scrollbar {

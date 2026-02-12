@@ -17,15 +17,15 @@ export class MenuBar {
     "./assets/img/burger-menu/burger-02.png",
     "./assets/img/burger-menu/close.png"
   ];
+  public menuService = inject(Menu);
+  public navService = inject(NavigationService);
   path = signal(this.imageList[0]);
   isAnimating:boolean = false;
-  activedLangBtn:string = "EN-btn";
-  lastActiveLangBtn:string = "EN-btn";
+  activedLangBtn: string = this.menuService.actualLanguage() + '-btn';
+  lastActiveLangBtn: string = this.menuService.actualLanguage() + '-btn';
   actualLanguage:string = "EN";
-  activedButton:string = "";
+  // activedButton:string = "";
   isManualScrolling: boolean = false;
-  protected menuService = inject(Menu);
-  public navService = inject(NavigationService);
   isMobile: boolean = window.innerWidth <= 768;
 
   constructor(private router: Router) {
@@ -47,11 +47,11 @@ export class MenuBar {
     this.isAnimating = true;
     const FRAMES = this.isMenuOpen ? [...this.imageList].reverse() : [...this.imageList];
     let i = 0;
-    const interval = setInterval(() => {
+    const INTERVAL = setInterval(() => {
       this.path.set(FRAMES[i]);
       i++;
       if (i === FRAMES.length) {
-        clearInterval(interval);
+        clearInterval(INTERVAL);
         this.isAnimating = false;
         this.menuService.toggle();
       }
@@ -66,6 +66,11 @@ export class MenuBar {
     this.changeLanguage(NEW_LANGUAGE);
   }
 
+  //zmiana jezyka za pomoca serwisu
+  changeLanguage(lang: string) {
+    this.menuService.changeLanguage(lang);
+  }
+
   //funkcja dla mouseover na przycisku jeyzkowym
   handleLangHover(btnId: string) {
     if(btnId == this.lastActiveLangBtn) return;
@@ -77,44 +82,4 @@ export class MenuBar {
     this.activedLangBtn = this.lastActiveLangBtn;
   }
 
-  //funkcja tlumaczaca storne na inny jezyk
-  changeLanguage(LANGUAGE:string){
-    if(LANGUAGE == this.actualLanguage) return;
-    console.log("Zmiana jezyka na " + LANGUAGE);
-    this.actualLanguage = LANGUAGE;
-  }
-
-  //funkcja logujaca, ktora sekcja jest widocyna - do uprzatnienia/uproszczenia
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
-    if (scrollPosition < 300) {
-      if (this.activedButton !== '') {
-        this.activedButton = '';
-      }
-      if (scrollPosition === 0) {
-        this.isManualScrolling = false;
-      }
-      return;
-    }
-    if (this.isManualScrolling) {
-      return;
-    }
-    const SECTIONS = document.querySelectorAll('.scroll-section');
-    const DETECTION_LINE = window.innerHeight *0.3;
-    let found = false;
-    SECTIONS.forEach((section) => {
-      const RECT = section.getBoundingClientRect();
-      if (RECT.top <= DETECTION_LINE && RECT.bottom >= DETECTION_LINE) {
-        const buttonId = section.id.replace('-section', '-btn');
-        if (this.activedButton !== buttonId) {
-          this.activedButton = buttonId;
-        }
-        found = true;
-      }
-    });
-    if (!found) {
-      this.activedButton = "";
-    }
-  }
 }
