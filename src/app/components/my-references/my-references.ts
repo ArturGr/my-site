@@ -24,7 +24,7 @@ export class MyReferences {
         personName:"Lorem ipsum",
         projectName:"Lorem ipsum dolor",
         description:"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea.",
-        linkedProfile:"#",
+        linkedProfile:"https://www.linkedin.com/",
       }
     },
     {
@@ -33,7 +33,7 @@ export class MyReferences {
         personName:"Lorem ipsum",
         projectName:"Lorem ipsum dolor",
         description:"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea",
-        linkedProfile:"#",
+        linkedProfile:"https://www.linkedin.com/",
       }
     },
     {
@@ -42,7 +42,7 @@ export class MyReferences {
         personName:"Lorem ipsum",
         projectName:"Lorem ipsum dolor",
         description:"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea",
-        linkedProfile:"#",
+        linkedProfile:"https://www.linkedin.com/",
       }
     },
   ]

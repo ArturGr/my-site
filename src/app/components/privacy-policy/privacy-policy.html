@@ -1,6 +1,11 @@
 <app-menu-bar class="sticky"/>
 <section class="privacy-policy">
   <div class="container">
+    @if(isMobile){
+      <button class="back-arrow" (click)="goHome()">
+        <img src="./img/arrow/arrow-back.png" alt="Back arrow">
+      </button>
+    }
     <h1>Privacy Policy</h1>
 
     <div class="legal-content">

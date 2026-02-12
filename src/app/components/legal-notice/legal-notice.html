@@ -1,6 +1,11 @@
 <app-menu-bar class="sticky"/>
 <section class="legal-notice">
   <div class="container">
+    @if(isMobile){
+      <button class="back-arrow" (click)="goHome()">
+        <img src="./img/arrow/arrow-back.png" alt="Back arrow">
+      </button>
+    }
     <h1>Legal Notice</h1>
     <h3>Imprint</h3>
     <ul>

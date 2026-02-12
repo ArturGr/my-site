@@ -7,6 +7,17 @@
   min-height: 100vh;
   font-family: 'Josefin Sans';
 
+  .back-arrow{
+    position: relative;
+    z-index: 100;
+    background: transparent;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .container {
     max-width: 1440px;
     margin: 0 auto;
