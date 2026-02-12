@@ -1,30 +1,20 @@
 @use '../../../styles.scss';
 
-  .footer-class{
-    max-width: 1440px;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0px clamp(1.25rem, 8vw, 6.81rem);
-    background-color: styles.$primary-color;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    align-items: flex-end;
-    justify-content: space-between;
-    &__author{
-      p{
-        font-family: 'Josefin Sans';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 1.2;
-        color: styles.$secondary-dark-grey;
-        opacity: 0.8;
-      }
-    }
-    &__link{
+.footer-class{
+  max-width: 1440px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px clamp(1.25rem, 8vw, 6.81rem);
+  background-color: styles.$primary-color;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: flex-end;
+  justify-content: space-between;
+  &__author{
+    p{
       font-family: 'Josefin Sans';
       font-style: normal;
       font-weight: 400;
@@ -32,50 +22,60 @@
       line-height: 1.2;
       color: styles.$secondary-dark-grey;
       opacity: 0.8;
-      transition: color 0.2s ease-in-out;
-      &:hover{
-        color: rgba(styles.$secondary-color, 0.7);
-      }
-      &:active{
-        color: styles.$secondary-color;
-      }
+    }
+  }
+  &__link{
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
+    color: styles.$secondary-dark-grey;
+    opacity: 0.8;
+    transition: color 0.2s ease-in-out;
+    &:hover{
+      color: rgba(styles.$secondary-color, 0.7);
+    }
+    &:active{
+      color: styles.$secondary-color;
+    }
+  }
+  &__social-btn{
+    --flex-direction: row;
+    --githubDef:url("/assets/img/social-media-buttons/github/dark.png");
+    --githubHov:url("/assets/img/social-media-buttons/github/white.png");
+    --linkedinbDef:url("/assets/img/social-media-buttons/linkedin/dark.png");
+    --linkedinHov:url("/assets/img/social-media-buttons/linkedin/white.png");
+    --emailDef:url("/assets/img/social-media-buttons/email/dark.png");
+    --emailHov:url("/assets/img/social-media-buttons/email/white.png");
+  }
+}
+
+@media screen and (max-width:768px) {
+  .footer-class{
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    margin: 30px 0px;
+    &__logo{
+      bottom: calc(100% - 74px - 2 * 30px);
+    }
+    &__author{
+      top: calc(100% - 21.6px);
+      height: auto;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      align-items: flex-end;
+      justify-content: space-between;
     }
     &__social-btn{
-      --flex-direction: row;
-      --githubDef:url("/img/social-media-buttons/github/dark.png");
-      --githubHov:url("/img/social-media-buttons/github/white.png");
-      --linkedinbDef:url("/img/social-media-buttons/linkedin/dark.png");
-      --linkedinHov:url("/img/social-media-buttons/linkedin/white.png");
-      --emailDef:url("/img/social-media-buttons/email/dark.png");
-      --emailHov:url("/img/social-media-buttons/email/white.png");
+      bottom: calc((100% - 2 * 30px - 21.6px - 74px) / 2 + 21.6px + 30px / 2);;
+      --githubDef:url("/assets/img/social-media-buttons/github/mobile.png");
+      --linkedinbDef:url("/assets/img/social-media-buttons/linkedin/mobile.png");
+      --emailDef:url("/assets/img/social-media-buttons/email/mobile.png");
     }
   }
-
-  @media screen and (max-width:768px) {
-    .footer-class{
-      flex-direction: column;
-      align-items: center;
-      height: 100%;
-      margin: 30px 0px;
-      &__logo{
-        bottom: calc(100% - 74px - 2 * 30px);
-      }
-      &__author{
-        top: calc(100% - 21.6px);
-        height: auto;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-content: center;
-        align-items: flex-end;
-        justify-content: space-between;
-      }
-      &__social-btn{
-        bottom: calc((100% - 2 * 30px - 21.6px - 74px) / 2 + 21.6px + 30px / 2);;
-        --githubDef:url("/img/social-media-buttons/github/mobile.png");
-        --linkedinbDef:url("/img/social-media-buttons/linkedin/mobile.png");
-        --emailDef:url("/img/social-media-buttons/email/mobile.png");
-      }
-    }
-  }
+}

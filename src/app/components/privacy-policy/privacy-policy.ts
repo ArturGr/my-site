@@ -14,12 +14,15 @@ import { MobileMenu } from '../mobile-menu/mobile-menu';
 export class PrivacyPolicy {
   protected menuService = inject(Menu);
   private router = inject(Router);
+
   get isMobile() {
     return this.menuService.isMobile();
   }
+
   get isMenuOpen(){
     return this.menuService.isMenuOpen();
   }
+
   goHome() {
     this.router.navigate(['/']).then(() => {
       window.scrollTo(0, 0);

@@ -78,28 +78,25 @@ export class ContactForm implements OnInit, OnDestroy {
   //   } else {
   //     this.contactForm.markAllAsTouched();
   //   }
-if (this.contactForm.valid) {
-    this.submissionStatus = 'sending';
+    if (this.contactForm.valid) {
+      this.submissionStatus = 'sending';
 
-    // SYMULACJA TESTOWA (Test nr 1)
-    setTimeout(() => {
-      this.submissionStatus = 'success';
-      this.contactForm.reset();
-      this.formService.clear();
+      // SYMULACJA TESTOWA (Test nr 1)
       setTimeout(() => {
-        this.closeFeedback();
+        this.submissionStatus = 'success';
+        this.contactForm.reset();
+        this.formService.clear();
+        setTimeout(() => {
+          this.closeFeedback();
+        }, 2000);
+
       }, 2000);
-
-    }, 2000);
+    }
   }
-}
 
-  // Funkcja ręcznego zamykania
   closeFeedback() {
-  if (this.submissionStatus !== 'sending') {
-    this.submissionStatus = 'idle';
+    if (this.submissionStatus !== 'sending') {
+      this.submissionStatus = 'idle';
+    }
   }
 }
-}
-
-

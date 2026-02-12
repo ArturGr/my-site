@@ -67,13 +67,14 @@ export class WhyMeSection extends MenuBar {
     });
   }
 
-getHighlightIndex(text: string): number {
-  let letterCount = 0;
-  let i = 0;
-  while (i < text.length && letterCount < 3) {
-    if (text[i] !== ' ') letterCount++;
-    i++;
+  //
+  getHighlightIndex(text: string): number {
+    let letterCount = 0;
+    let i = 0;
+    while (i < text.length && letterCount < 3) {
+      if (text[i] !== ' ') letterCount++;
+      i++;
+    }
+    return i;
   }
-  return i;
-}
 }

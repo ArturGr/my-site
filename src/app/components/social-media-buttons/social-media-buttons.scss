@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+
   .btn{
     width: 30px;
     height: 30px;
@@ -15,23 +16,22 @@
     background-repeat: no-repeat;
     transition: background-image 0.3s ease-in-out;
     &__github {
-      background-image: var(--githubDef,url("/img/social-media-buttons/github/default.png"));
+      background-image: var(--githubDef,url("/assets/img/social-media-buttons/github/default.png"));
       &:hover{
-        background-image: var(--githubHov,url("/img/social-media-buttons/github/hover-blue.png"));
+        background-image: var(--githubHov,url("/assets/img/social-media-buttons/github/hover-blue.png"));
       }
-    };
+    }
     &__linkedin {
-      background-image: var(--linkedinbDef,url("/img/social-media-buttons/linkedin/default.png"));
+      background-image: var(--linkedinbDef,url("/assets/img/social-media-buttons/linkedin/default.png"));
       &:hover{
-        background-image: var(--linkedinHov,url("/img/social-media-buttons/linkedin/hover-blue.png"));
+        background-image: var(--linkedinHov,url("/assets/img/social-media-buttons/linkedin/hover-blue.png"));
       }
-    };
+    }
     &__email {
-      background-image: var(--emailDef,url("/img/social-media-buttons/email/default.png"));
+      background-image: var(--emailDef,url("/assets/img/social-media-buttons/email/default.png"));
       &:hover{
-        background-image: var(--emailHov,url("/img/social-media-buttons/email/hover-blue.png"));
+        background-image: var(--emailHov,url("/assets/img/social-media-buttons/email/hover-blue.png"));
       }
-    };
-
+    }
   }
 }

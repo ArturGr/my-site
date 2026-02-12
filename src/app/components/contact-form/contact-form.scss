@@ -1,4 +1,5 @@
 @use '../../../styles.scss';
+
 .background{
   width: 100%;
   height: auto;
@@ -11,6 +12,7 @@
   flex-direction: column;
   gap: 32px;
   width: 100%;
+
   .input-row {
     display: flex;
     gap: 32px;
@@ -19,6 +21,7 @@
       flex-direction: column;
     }
   }
+
   .input-group {
     display: flex;
     flex-direction: column;
@@ -29,10 +32,12 @@
       font-size: 16px;
       color: styles.$primary-color;
       padding-left: 25px;
+
       .error-text {
         color: styles.$error;
       }
     }
+
     .input-wrapper {
       position: relative;
       display: flex;
@@ -60,6 +65,7 @@
         min-height: 150px;
         resize: none;
       }
+
       .status-icon {
         position: absolute;
         right: 20px;
@@ -79,10 +85,12 @@
       }
     }
   }
+
   .privacy-section {
     display: flex;
     flex-direction: column;
     margin-top: 8px;
+
     .checkbox-container {
       display: flex;
       align-items: flex-start;
@@ -91,6 +99,7 @@
       input {
         display: none;
       }
+
       .custom-checkbox {
         flex-shrink: 0;
         width: 24px;
@@ -98,15 +107,16 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
-        background-image: url("/img/contact/checkbox/Default.png");
+        background-image: url("/assets/img/contact/checkbox/Default.png");
         transition: background-image 0.2s ease;
       }
       &:hover .custom-checkbox {
-        background-image: url("/img/contact/checkbox/Hover.png");
+        background-image: url("/assets/img/contact/checkbox/Hover.png");
       }
       input:checked + .custom-checkbox {
-        background-image: url("/img/contact/checkbox/Checked.png") !important;
+        background-image: url("/assets/img/contact/checkbox/Checked.png") !important;
       }
+
       .privacy-text {
         display: flex;
         flex-direction: column;
@@ -126,6 +136,7 @@
             }
           }
         }
+
         .error-message {
           color: styles.$error;
           font-size: 14px;
@@ -133,20 +144,22 @@
         }
       }
     }
+
     &.error {
       .checkbox-container {
         .custom-checkbox {
-          background-image: url("/img/contact/checkbox/Error.png");
+          background-image: url("/assets/img/contact/checkbox/Error.png");
         }
         &:hover .custom-checkbox {
-          background-image: url("/img/contact/checkbox/Error.png");
+          background-image: url("/assets/img/contact/checkbox/Error.png");
         }
         input:checked + .custom-checkbox {
-          background-image: url("/img/contact/checkbox/Checked.png") !important;
+          background-image: url("/assets/img/contact/checkbox/Checked.png") !important;
         }
       }
     }
   }
+
   .submit-area {
     display: flex;
     justify-content: flex-end;
@@ -167,6 +180,7 @@
       }
     }
   }
+
   .feedback-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -201,15 +215,16 @@
 .status-msg {
   position: relative;
   padding: 50px 30px 30px 30px !important;
+
   .close-icon-div {
     position: absolute;
-    top: 15px;    // Odsunięcie od góry
-    right: 15px;  // Odsunięcie od prawej
-    width: 35px;  // Wymagany rozmiar
-    height: 35px; // Wymagany rozmiar
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
     cursor: pointer;
-    z-index: 20;  // Upewniamy się, że jest na wierzchu
-    background-image: url('/burger-menu/close.png');
+    z-index: 20;
+    background-image: url('/assets/img/burger-menu/close.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

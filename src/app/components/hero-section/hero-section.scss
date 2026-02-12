@@ -58,6 +58,7 @@
     margin-right: clamp(1.25rem, 8vw, 6.81rem);
     width: calc(50% - clamp(1.25rem, 8vw, 6.81rem));
     aspect-ratio: 0.91;
+
     .hero-logo{
       position: absolute;
       top: 15%;
@@ -89,6 +90,7 @@
       position: relative;
       top: 60%;
     }
+
     .socialBtn{
       position: absolute;
       top: 5%;
@@ -112,10 +114,12 @@
 }
 
 @media screen and (max-width:768px) {
+
   .background{
     padding-top: 104px;
     padding-bottom: 34px;
   }
+
   .hero-section{
     height: auto;
     flex-direction: column;
@@ -130,8 +134,8 @@
       align-items: center;
       &--my{
         margin: 0;
-        -webkit-mask-image: url('/img/BG-shape-halb.png');
-        mask-image: url('/img/BG-shape-halb.png');
+        -webkit-mask-image: url('/assets/img/BG-shape-halb.png');
+        mask-image: url('/assets/img/BG-shape-halb.png');
         -webkit-mask-size: contain;
         mask-size: 100%;
         -webkit-mask-repeat: no-repeat;
@@ -156,6 +160,7 @@
         position: unset;
         top: unset;
       }
+
       .hero-logo{
         display: none;
       }
@@ -165,6 +170,7 @@
       }
     }
   }
+
   .socialBtn{
     display: none;
   }

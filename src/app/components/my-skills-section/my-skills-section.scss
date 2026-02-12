@@ -63,13 +63,13 @@
         "icons"
         "desc";
       height: -webkit-fill-available;
-      background-image: url("/img/skills/Ellipse-Default.png");
+      background-image: url("/assets/img/skills/Ellipse-Default.png");
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
       transition: background-image 0.5s ease-in-out;
       &:hover {
-        background-image: url("/img/skills/Ellipse-Hover.png");
+        background-image: url("/assets/img/skills/Ellipse-Hover.png");
       }
       span {
         font-family: 'Josefin Sans';
@@ -94,12 +94,14 @@ button{
 }
 
 @media screen and (min-width:768px) and (max-width:900px){
+
   .my-skills-section__inhalt__grid{
     gap: clamp(6px, 1.5vw, 30px);;
   }
 }
 
 @media screen and (max-width:768px) {
+
   .my-skills-section{
     h2{
       font-size: 32px;

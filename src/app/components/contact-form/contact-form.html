@@ -13,7 +13,7 @@
 
     @if (submissionStatus === 'success') {
       <div class="status-msg" (click)="$event.stopPropagation()">
-        <img src="/img/contact/Box-correct.png" alt="success">
+        <img src="/assets/img/contact/Box-correct.png" alt="success">
         <p>Your message has been sent!</p>
         <div class="close-icon-div"></div>
       </div>
@@ -42,7 +42,7 @@
       <div class="input-wrapper">
         <input type="text" id="name" formControlName="name" [placeholder]="isMobile && isInvalid('name') ? 'Your name is required' : 'Enter your name'">
         @if (isValid('name') && !isMobile) {
-          <img src="/img/contact/Box-correct.png" class="status-icon" alt="valid">
+          <img src="/assets/img/contact/Box-correct.png" class="status-icon" alt="valid">
         }
       </div>
     </div>
@@ -60,7 +60,7 @@
       <div class="input-wrapper">
         <input type="email" id="email" formControlName="email" [placeholder]="isMobile && isInvalid('email') ? 'Your email is required' : 'Enter your email'">
         @if (isValid('email') && !isMobile) {
-          <img src="/img/contact/Box-correct.png" class="status-icon" alt="valid">
+          <img src="/assets/img/contact/Box-correct.png" class="status-icon" alt="valid">
         }
       </div>
     </div>
@@ -80,7 +80,7 @@
       <textarea id="message" formControlName="message" [placeholder]="isMobile && isInvalid('message') ? 'Your message is required' : 'How can I help you?'"
       ></textarea>
       @if (isValid('message') && !isMobile) {
-        <img src="/img/contact/Box-correct.png" class="status-icon" alt="valid">
+        <img src="/assets/img/contact/Box-correct.png" class="status-icon" alt="valid">
       }
     </div>
   </div>

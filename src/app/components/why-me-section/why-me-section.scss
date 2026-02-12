@@ -55,7 +55,7 @@
                 transform: translate(-50%, -50%);
                 width: 140%;
                 height: 140%;
-                background-image: url('../../../../public/img/why-me-icons/Ellipse-24.png');
+                background-image: url('/assets/img/why-me-icons/Ellipse-24.png');
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
@@ -130,6 +130,7 @@
     animation: blink 0.8s step-end infinite;
   }
 }
+
 @keyframes blink {
   from, to { opacity: 1; }
   50% { opacity: 0; }
@@ -160,7 +161,7 @@ button{
   left: calc(50% - 136px / 2);
   transition: background-color 0.3s ease;
   &:hover{
-  background-color: styles.$secondary-light-grey;
+    background-color: styles.$secondary-light-grey;
   }
 }
 

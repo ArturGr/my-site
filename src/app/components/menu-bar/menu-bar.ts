@@ -12,10 +12,10 @@ import { Router } from '@angular/router';
 })
 export class MenuBar {
   imageList: (string)[]=[
-    "./burger-menu/default.png",
-    "./burger-menu/burger-01.png",
-    "./burger-menu/burger-02.png",
-    "./burger-menu/close.png"
+    "./assets/img/burger-menu/default.png",
+    "./assets/img/burger-menu/burger-01.png",
+    "./assets/img/burger-menu/burger-02.png",
+    "./assets/img/burger-menu/close.png"
   ];
   path = signal(this.imageList[0]);
   isAnimating:boolean = false;
