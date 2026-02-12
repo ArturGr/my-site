@@ -11,8 +11,3 @@ export class SocialMediaButtons extends MenuBar {
   pathToGitHub:string = "https://github.com/ArturGr";
   pathToLinkedin:string = "https://linkedin.com/in/artur-groblicki/";
 }
-
-
-//hero section -> default to hover blue
-//footer section -> dark to white
-//mobile bez efektu

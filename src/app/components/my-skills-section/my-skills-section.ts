@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { MenuBar } from '../menu-bar/menu-bar';
+import { Component, inject } from '@angular/core';
+import { Menu } from '../../services/menu';
+import { NavigationService } from '../../services/navigation-service';
 
 @Component({
   selector: 'app-my-skills-section',
@@ -7,7 +8,7 @@ import { MenuBar } from '../menu-bar/menu-bar';
   templateUrl: './my-skills-section.html',
   styleUrl: './my-skills-section.scss',
 })
-export class MySkillsSection extends MenuBar {
+export class MySkillsSection{
   iconDesktop:string[][]=[
     ["./img/skills/0-Angular.png","Angular Icon"],
     ["./img/skills/1-TypeScript.png","TypeScript Icon"],
@@ -39,6 +40,10 @@ export class MySkillsSection extends MenuBar {
     ["./img/skills/currently-learning/Vue-JS.png","Vue JS Icon"],
   ];
 
+  protected menuService = inject(Menu);
+  public navService = inject(NavigationService);
 
-
+  get isMobile() {
+    return this.menuService.isMobile();
+  }
 }

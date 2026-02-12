@@ -93,6 +93,4 @@ export class MyProjectSection extends MySkillsSection {
     }
   ]
   activeProject:number = 1;
-
-
 }
