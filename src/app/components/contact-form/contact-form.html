@@ -11,15 +11,15 @@
     }
     @if (submissionStatus === 'success') {
       <div class="status-msg" (click)="$event.stopPropagation()">
-        <img src="/assets/img/contact/Box-correct.png" alt="success">
         <p>{{translate.sendingSuccess}}</p>
-        <div class="close-icon-div"></div>
+        <img src="/assets/img/contact/Box-correct.png" alt="success">
+        <div class="close-icon-div" (click)="closeFeedback()"></div>
       </div>
     }
     @if (submissionStatus === 'error') {
       <div class="status-msg" (click)="$event.stopPropagation()">
         <p class="error-color">{{translate.sendingFailed}}</p>
-        <div class="close-icon-div"></div>
+        <div class="close-icon-div" (click)="closeFeedback()"></div>
       </div>
     }
   </div>

@@ -63,38 +63,24 @@ export class ContactForm implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-  //  if (this.contactForm.valid) {
-  //     this.submissionStatus = 'sending';
-  //     const endpoint = "https://artur-groblicki.developerakademie.net/Portfolio/php/send_mail.php";
-  //     this.http.post(endpoint, this.contactForm.value).subscribe({
-  //       next: (response) => {
-  //         this.submissionStatus = 'success';
-  //         this.formService.clear();
-  //         this.contactForm.reset();
-  //         setTimeout(() => this.submissionStatus = 'idle', 5000);
-  //       },
-  //       error: (error) => {
-  //         this.submissionStatus = 'error';
-  //         console.error('Błąd!', error);
-  //         setTimeout(() => this.submissionStatus = 'idle', 3000);
-  //       }
-  //     });
-  //   } else {
-  //     this.contactForm.markAllAsTouched();
-  //   }
     if (this.contactForm.valid) {
       this.submissionStatus = 'sending';
-
-      // SYMULACJA TESTOWA (Test nr 1)
-      setTimeout(() => {
-        this.submissionStatus = 'success';
-        this.contactForm.reset();
-        this.formService.clear();
-        setTimeout(() => {
-          this.closeFeedback();
-        }, 2000);
-
-      }, 2000);
+      const endpoint = "https://artur-groblicki.developerakademie.net/Portfolio/php/send_mail.php";
+      this.http.post(endpoint, this.contactForm.value).subscribe({
+        next: (response: any) => {
+          this.submissionStatus = 'success';
+          this.formService.clear();
+          this.contactForm.reset();
+          setTimeout(() => this.closeFeedback(), 5000);
+        },
+        error: (error) => {
+          this.submissionStatus = 'error';
+          console.error('Submission error:', error);
+          setTimeout(() => this.closeFeedback(), 4000);
+        }
+      });
+    } else {
+      this.contactForm.markAllAsTouched();
     }
   }
 

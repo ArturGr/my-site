@@ -218,8 +218,8 @@
 
   .close-icon-div {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 20px;
+    right: calc(50% - 35px / 2);
     width: 35px;
     height: 35px;
     cursor: pointer;
