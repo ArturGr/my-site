@@ -8,8 +8,8 @@
       <button id="contact-me-btn" [class.active]="navService.activeButton() === 'contact-me-btn'" (click)="navService.scrollToSection('contact-me-section','contact-me-btn')">{{translate.contact}}</button>
     </div>
     <div id="btn-for-language" class="menu-bar__language">
-      <button id="EN-btn" [class.active]="activedLangBtn === 'EN-btn'" (click)="activLangBtn('EN')" (mouseover)="handleLangHover('EN-btn')" (mouseleave)="handleLangLeave()">EN</button>
-      <button id ="DE-btn" [class.active]="activedLangBtn === 'DE-btn'" (click)="activLangBtn('DE')" (mouseover)="handleLangHover('DE-btn')" (mouseleave)="handleLangLeave()">DE</button>
+      <button id="EN-btn" [class.active]="menuService.actualLanguage() === 'EN'" (click)="activLangBtn('EN')" (mouseover)="handleLangHover('EN-btn')" (mouseleave)="handleLangLeave()">EN</button>
+      <button id ="DE-btn" [class.active]="menuService.actualLanguage() === 'DE'" (click)="activLangBtn('DE')" (mouseover)="handleLangHover('DE-btn')" (mouseleave)="handleLangLeave()">DE</button>
     </div>
     <div id="burger-menu" class="burger-menu">
       <button><img [src]="path()" alt="Burger menu" (click)="toggleMenu()"></button>

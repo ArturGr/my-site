@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Menu } from '../../services/menu';
+
 type References= {
     id: number;
     properties: {
@@ -46,4 +48,11 @@ export class MyReferences {
       }
     },
   ]
+
+  public menuService = inject(Menu);
+
+  get translate() {
+    return this.menuService.translate().myProjectSectionLang;
+  }
+
 }

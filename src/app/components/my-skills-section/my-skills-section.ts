@@ -46,4 +46,9 @@ export class MySkillsSection{
   get isMobile() {
     return this.menuService.isMobile();
   }
+
+  get translate() {
+    return this.menuService.translate().mySkillsSectionLang;
+  }
+
 }

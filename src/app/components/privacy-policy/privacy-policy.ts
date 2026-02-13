@@ -12,7 +12,7 @@ import { MobileMenu } from '../mobile-menu/mobile-menu';
   styleUrl: './privacy-policy.scss',
 })
 export class PrivacyPolicy {
-  protected menuService = inject(Menu);
+  public menuService = inject(Menu);
   private router = inject(Router);
 
   get isMobile() {
@@ -21,6 +21,10 @@ export class PrivacyPolicy {
 
   get isMenuOpen(){
     return this.menuService.isMenuOpen();
+  }
+
+  get translate() {
+    return this.menuService.translate().privacyPolicyLang;
   }
 
   goHome() {

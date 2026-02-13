@@ -9,39 +9,26 @@
         <app-mobile-menu class="mobile-menu" />
       }
     }
-    <h1>Privacy Policy</h1>
+    <h1>{{translate.title}}</h1>
 
     <div class="legal-content">
-      <p>Last updated: February 26, 2025</p>
+      <p>{{translate.lastUpdate}} 26, 2026</p>
 
-      <h3>1. General Information</h3>
-      <p>This Privacy Policy informs you about the type, scope, and purpose of the collection and use of personal data when visiting this portfolio project. As this is a development project, data collection is kept to a minimum.</p>
+      <h3>1. {{translate.generalInformation}}</h3>
+      <p>{{translate.generalInformationDescription}}</p>
 
-      <h3>2. Data Recording and Hosting</h3>
-      <p><strong>External Hosting</strong></p>
-      <p>This project is hosted on the servers of Developer Akademie. When you visit this website, the hosting provider's servers may automatically collect and store information in server log files (such as IP address, browser type, and time of access). This is necessary for the technical operation and security of the website.</p>
+      <h3>2. {{translate.dataRecordingAndHosting}}</h3>
+      <p><strong>{{translate.externalHosting}}</strong></p>
+      <p>{{translate.externalHostingDescription}}</p>
 
-      <p><strong>Local Storage (Language Settings)</strong></p>
-      <p>This website uses the localStorage function of your browser to store your language preference (e.g., English or German) locally on your device.
-        <br>This data is strictly functional and remains on your device.
-        <br>It is not transmitted to any server or shared with third parties.
-        <br>You can delete this data at any time through your browser settings.
-      </p>
+      <p><strong>{{translate.localStorage}}</strong></p>
+      <p [innerHTML]="translate.localStorageDescription"></p>
 
-      <h3>3. Contacting Me</h3>
-      <p>If you provide information to me (for example, via a contact form or email), this data is used exclusively to process your inquiry.
-        <br>We do not pass on this data without your consent.
-        <br>The data will be deleted once your request has been processed, provided there are no legal storage obligations.
-      </p>
+      <h3>3. {{translate.contactingMe}}</h3>
+      <p [innerHTML]="translate.contactingMeDescription"></p>
 
-      <h3>4. Your Rights</h3>
-      <p>Under the General Data Protection Regulation (GDPR), you have the right to:
-        <br>Access the personal data we hold about you.
-        <br>Request the correction or deletion of your data.
-        <br>Object to or request the restriction of processing.
-        <br>Withdraw any consent you have previously given.
-        <br>To exercise these rights, please contact the website operator via the details provided in the Imprint/Contact section.
-      </p>
+      <h3>4. {{translate.yourRights}}</h3>
+      <p [innerHTML]="translate.yourRightsDescription"></p>
     </div>
   </div>
 </section>

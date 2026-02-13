@@ -22,10 +22,14 @@ export const TRANSLATIONS = {
       btn: 'Let’s talk'
     },
     myProjectSectionLang: {
+      title: 'My Projects',
+      project: 'Project',
       aboutProject:'About the project',
       workProcess: 'How I have organised my work process',
       workGroupExperience: 'My group work experience',
-      teamPlayer:'Need a teamplayer? Here what my colleagues said about me'
+      teamPlayer:'Need a teamplayer? Here what my colleagues said about me',
+      duration: 'Duration',
+      technologies: 'Technologies'
     },
     contacMeSectionLang: {
       title: 'Contact me',
@@ -115,10 +119,14 @@ export const TRANSLATIONS = {
       btn: 'Lass uns reden'
     },
     myProjectSectionLang: {
+      title: 'Meine Projekte',
+      project: 'Projekt',
       aboutProject: 'Über das Projekt',
       workProcess: 'So habe ich meinen Arbeitsprozess organisiert',
       workGroupExperience: 'Meine Erfahrung in der Gruppenarbeit',
-      teamPlayer: 'Brauchen Sie einen Teamplayer? Das sagen meine Kollegen über mich'
+      teamPlayer: 'Brauchen Sie einen Teamplayer? Das sagen meine Kollegen über mich',
+      duration: 'Dauer',
+      technologies: 'Technologien',
     },
     contacMeSectionLang: {
       title: 'Kontaktieren Sie mich',

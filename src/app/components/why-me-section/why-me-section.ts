@@ -11,13 +11,10 @@ import { NavigationService } from '../../services/navigation-service';
 export class WhyMeSection {
 
   readonly slides = [
-    {icon: 'Location.png', fullTextEN: 'I am located in Ainring.'},
-    {icon: 'Relocation.png', fullTextEN: 'I am open to relocate.'},
-    {icon: 'Remote.png', fullTextEN: 'I am open to work remote.'}
+    {icon: 'Location.png', fullTextEN: 'I am located in Ainring.', fullTextDE: 'Ich befinde mich in Ainring.'},
+    {icon: 'Relocation.png', fullTextEN: 'I am open to relocate.', fullTextDE: 'Ich bin bereit, umzuziehen.'},
+    {icon: 'Remote.png', fullTextEN: 'I am open to work remote.', fullTextDE: 'Ich bin offen für remote Arbeit.'}
   ];
-  currentSlideIndex = signal(0);
-  displayText = signal(this.slides[0].fullTextEN);
-  isAnimatingWhySlide = signal(false);
 
   public menuService = inject(Menu);
   public navService = inject(NavigationService);
@@ -29,6 +26,10 @@ export class WhyMeSection {
   get translate() {
     return this.menuService.translate().whyMeSectionLang;
   }
+
+  currentSlideIndex = signal(0);
+  displayText = signal(this.menuService.actualLanguage() === 'DE' ? this.slides[0].fullTextDE : this.slides[0].fullTextEN);
+  isAnimatingWhySlide = signal(false);
 
   //
   async triggerAnimation() {
@@ -46,9 +47,12 @@ export class WhyMeSection {
   //
   private async runSlideCycle(index: number) {
     this.currentSlideIndex.set(index);
-    await this.typeEffect(this.slides[index].fullTextEN);
+    const lang = this.menuService.actualLanguage();
+    const textToType = lang === 'DE' ? this.slides[index].fullTextDE : this.slides[index].fullTextEN;
+
+    await this.typeEffect(textToType);
     return new Promise(res => setTimeout(res, 1000));
-  }
+}
 
   //
   private typeEffect(text: string): Promise<void> {

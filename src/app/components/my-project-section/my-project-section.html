@@ -1,6 +1,6 @@
 <div class="background">
   <div id="my-project-section" class="my-project-section scroll-section">
-    <h2>My Projects</h2>
+    <h2>{{translateProject.title}}</h2>
     <div class="my-project-section__list">
       @for (item of projects; track item.id) {
         @if(item.id <= 4){
@@ -8,7 +8,7 @@
           (click)="activeProject = item.id"
           [class.active-project]="activeProject === item.id">
           @if(isMobile){
-            {{item.id}}. Project
+            {{item.id}}. {{translateProject.project}}
           } @else{
             {{item.id}}. {{item.properties.name}}
           }
@@ -22,24 +22,28 @@
           <div class="info__description">
             <div class="info__title">
               <img src="./assets/img/projects/Ellipse-8.png" alt="Ellipse Icon">
-              <h4>About the project</h4>
-              @if(!isMobile){<p>Duration: {{selected.properties.duration}}</p>}
+              <h4>{{translateProject.aboutProject}}</h4>
+              @if(!isMobile){
+                <p>
+                  {{translateProject.duration}}: {{isDE ? selected.properties.durationDE : selected.properties.duration}}
+                </p>
+              }
             </div>
-            <span>{{selected.properties.about}}</span>
+            <span>{{isDE ? selected.properties.aboutDE : selected.properties.about}}</span>
           </div>
           <div class="info__description">
             <div class="info__title">
               <img src="./assets/img/projects/Ellipse-8.png" alt="Ellipse Icon">
-              <h4>How I have organised my work process</h4>
+              <h4>{{translateProject.workProcess}}</h4>
             </div>
-            <span>{{selected.properties.workProcess}}</span>
+            <span>{{isDE ? selected.properties.workProcessDE : selected.properties.workProcess}}</span>
           </div>
           <div class="info__description">
             <div class="info__title">
               <img src="./assets/img/projects/Ellipse-8.png" alt="Ellipse Icon">
-              <h4>My group work experience</h4>
+              <h4>{{translateProject.workGroupExperience}}</h4>
             </div>
-            <span>{{selected.properties.groupWorkExperience}}</span>
+            <span>{{isDE ? selected.properties.groupWorkExperienceDE : selected.properties.groupWorkExperience}}</span>
           </div>
           @if(isMobile){
             <div class="buttons">
@@ -60,7 +64,7 @@
           @if(isMobile){<p class="screenshot__title">{{selected.properties.name}}</p>}
           <div class="screenshot__technologies">
             @if(!isMobile){
-              <p>Technologies</p>
+              <p>{{translateProject.technologies}}</p>
               <div class="screenshot__technologies__divIMG">
                 @for (img of selected.properties.technologiesIMG; track $index) {
                   <img
@@ -72,7 +76,7 @@
                 }
               </div>
             } @else {
-              <p>Technologies:
+              <p>{{translateProject.technologies}}:
                 @for (img of selected.properties.technologies; track $index) {
                   @if($index < selected.properties.technologies.length-1){
                     {{selected.properties.technologies[$index]}},
@@ -81,7 +85,7 @@
                   }
                 }
               </p>
-              <p>Duration: {{selected.properties.duration}}</p>
+              <p>{{translateProject.duration}}: {{isDE ? selected.properties.durationDE : selected.properties.duration}}</p>
             }
           </div>
           @if (selected.properties.img !="" && selected.properties.img !=null) {
