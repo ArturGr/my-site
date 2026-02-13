@@ -1,6 +1,6 @@
 <div class="background">
   <div id="why-me-section" class="why-me-section scroll-section">
-    <h2>Why me</h2>
+    <h2>{{translate.title}}</h2>
     <div class="why-me-section__inhalt" (mouseenter)="triggerAnimation()">
       <div class="why-me-section__inhalt__animated">
         <div class="why-me-section__inhalt__animated--location">
@@ -19,14 +19,10 @@
         </div>
       </div>
       <div class="why-me-section__inhalt__description">
-        <span>
-          Coding is where my analytical thinking meets relentless persistence.
-          <br>I treat every complex bug as a puzzle that requires a problem-solving mindset to solve.
-          <br>I don’t just write code. I value collaboration to transform difficult challenges into clean, efficient, and scalable digital solutions.
-        </span>
+        <span [innerHTML]="translate.description"></span>
       </div>
 
     </div>
-    <button (click)="navService.scrollToSection('contact-me-section','contact-me-btn')">Let’s talk</button>
+    <button (click)="navService.scrollToSection('contact-me-section','contact-me-btn')">{{translate.btn}}</button>
   </div>
 </div>

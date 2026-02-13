@@ -1,6 +1,7 @@
-import { Injectable, signal, inject } from '@angular/core';
+import { Injectable, signal, inject, computed } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
+import { TRANSLATIONS, Lang } from '../models/translations';
 
 @Injectable({
   providedIn: 'root',
@@ -28,8 +29,8 @@ export class Menu {
       }
     });
 
-    const savedLang = localStorage.getItem('lang');
-    if (savedLang) {
+    const savedLang = localStorage.getItem('lang') as Lang;
+    if (savedLang && (savedLang === 'EN' || savedLang === 'DE')) {
       this.actualLanguage.set(savedLang);
     }
   }
@@ -41,9 +42,10 @@ export class Menu {
     this._isMenuOpen.set(state);
   }
 
-  actualLanguage = signal<string>('EN');
+  actualLanguage = signal<Lang>('EN');
+  translate = computed(() => TRANSLATIONS[this.actualLanguage()]);
 
-  changeLanguage(newLang: string) {
+  changeLanguage(newLang: Lang) {
     if (newLang === this.actualLanguage()) return;
     this.actualLanguage.set(newLang);
     localStorage.setItem('lang', newLang);

@@ -1,5 +1,6 @@
-import { Component, signal, OnInit, OnDestroy } from '@angular/core';
-import { MenuBar } from '../menu-bar/menu-bar';
+import { Component, signal, OnInit, OnDestroy, inject } from '@angular/core';
+import { Menu } from '../../services/menu';
+import { NavigationService } from '../../services/navigation-service';
 
 @Component({
   selector: 'app-why-me-section',
@@ -7,16 +8,27 @@ import { MenuBar } from '../menu-bar/menu-bar';
   templateUrl: './why-me-section.html',
   styleUrl: './why-me-section.scss',
 })
-export class WhyMeSection extends MenuBar {
+export class WhyMeSection {
 
   readonly slides = [
-    {icon: 'Location.png', fullText: 'I am located in Ainring.'},
-    {icon: 'Relocation.png', fullText: 'I am open to relocate.'},
-    {icon: 'Remote.png', fullText: 'I am open to work remote.'}
+    {icon: 'Location.png', fullTextEN: 'I am located in Ainring.'},
+    {icon: 'Relocation.png', fullTextEN: 'I am open to relocate.'},
+    {icon: 'Remote.png', fullTextEN: 'I am open to work remote.'}
   ];
   currentSlideIndex = signal(0);
-  displayText = signal(this.slides[0].fullText);
+  displayText = signal(this.slides[0].fullTextEN);
   isAnimatingWhySlide = signal(false);
+
+  public menuService = inject(Menu);
+  public navService = inject(NavigationService);
+
+  get isMenuOpen() {
+    return this.menuService.isMenuOpen();
+  }
+
+  get translate() {
+    return this.menuService.translate().whyMeSectionLang;
+  }
 
   //
   async triggerAnimation() {
@@ -34,7 +46,7 @@ export class WhyMeSection extends MenuBar {
   //
   private async runSlideCycle(index: number) {
     this.currentSlideIndex.set(index);
-    await this.typeEffect(this.slides[index].fullText);
+    await this.typeEffect(this.slides[index].fullTextEN);
     return new Promise(res => setTimeout(res, 1000));
   }
 

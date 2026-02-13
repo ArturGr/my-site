@@ -1,12 +1,12 @@
 <div class="background">
   <div id="contact-me-section" class="contact-me-section scroll-section">
-    <h3>Contact me </h3>
+    <h3>{{translate.title}} </h3>
     <button class="contact-me-section__arowwup" (click)="navService.scrollToSection('hero-section', '')">
       <img src="./assets/img/arrow/arrow-up.png" alt="Arrow up">
     </button>
     <div class="contact-me-section__inhalt">
       <div class="contact-me-section__inhalt__text">
-        <p>Ready to bring your ideas to life? I’m interested in web development roles where I can apply my skills in structured, high-quality coding to help your projects succeed and grow in a fast-paced environment. Feel free to get in touch with job offers or collaboration opportunities!</p>
+        <p>{{translate.description}}</p>
       </div>
       <div class="contact-me-section__inhalt__icon">
         <a href="mailto:arturgroblicki@gmail.com" (click)="handleEmailClick()">

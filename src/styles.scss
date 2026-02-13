@@ -36,7 +36,7 @@ $white: white;
 .sticky{
   position: sticky;
   top: 0px;
-  z-index: 1;
+  z-index: 10;
 }
 
 .hidden{
@@ -69,6 +69,13 @@ $white: white;
 
 button{
   cursor: pointer;
+}
+
+.styled-text {
+  ::ng-deep span {
+    font-weight: 400;
+    color: var(--font-color, $primary-color);
+  }
 }
 
 @media screen and (max-width:768px) {

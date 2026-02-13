@@ -22,6 +22,10 @@ export class LegalNotice {
     return this.menuService.isMenuOpen();
   }
 
+  get translate() {
+    return this.menuService.translate().legalNoticeLang;
+  }
+
   goHome() {
     this.router.navigate(['/']).then(() => {
       window.scrollTo(0, 0);

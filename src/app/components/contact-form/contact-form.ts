@@ -18,6 +18,10 @@ export class ContactForm implements OnInit, OnDestroy {
   submissionStatus: 'idle' | 'sending' | 'success' | 'error' = 'idle';
   protected menuService = inject(Menu);
 
+  get translate() {
+    return this.menuService.translate().contacMeSectionLang;
+  }
+
   get isMobile() {
     return this.menuService.isMobile();
   }

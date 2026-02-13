@@ -1,8 +1,9 @@
 import { MyLogo } from './../my-logo/my-logo';
-import { Component, signal, HostListener, effect, inject} from '@angular/core';
+import { Component, signal, effect, inject} from '@angular/core';
 import { Menu } from '../../services/menu';
 import { NavigationService } from '../../services/navigation-service';
 import { Router } from '@angular/router';
+import { Lang } from '../../models/translations';
 
 @Component({
   selector: 'app-menu-bar',
@@ -24,7 +25,6 @@ export class MenuBar {
   activedLangBtn: string = this.menuService.actualLanguage() + '-btn';
   lastActiveLangBtn: string = this.menuService.actualLanguage() + '-btn';
   actualLanguage:string = "EN";
-  // activedButton:string = "";
   isManualScrolling: boolean = false;
   isMobile: boolean = window.innerWidth <= 768;
 
@@ -39,6 +39,10 @@ export class MenuBar {
 
   get isMenuOpen() {
     return this.menuService.isMenuOpen();
+  }
+
+  get translate() {
+    return this.menuService.translate().menuLang;
   }
 
   //animacja burger menu
@@ -59,15 +63,10 @@ export class MenuBar {
   }
 
   //funkcja przypisujaca klase "active" do przyciskow jezykowych menu i wywolanie zmiany jezyka
-  activLangBtn(btnId: string) {
+  activLangBtn(lang: Lang) {
+    const btnId = lang + '-btn';
     this.activedLangBtn = btnId;
     this.lastActiveLangBtn = btnId;
-    const NEW_LANGUAGE = btnId.replace('-btn', '');
-    this.changeLanguage(NEW_LANGUAGE);
-  }
-
-  //zmiana jezyka za pomoca serwisu
-  changeLanguage(lang: string) {
     this.menuService.changeLanguage(lang);
   }
 

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ContactForm } from "../contact-form/contact-form";
-import { MenuBar } from '../menu-bar/menu-bar';
+import { Menu } from '../../services/menu';
+import { NavigationService } from '../../services/navigation-service';
 
 type Icon = {
   email:{
@@ -20,7 +21,7 @@ type Icon = {
   templateUrl: './contact-me-section.html',
   styleUrl: './contact-me-section.scss',
 })
-export class ContactMeSection extends MenuBar{
+export class ContactMeSection{
   icon:Icon={
     email:{
       default: "./img/contact/email/Default.png",
@@ -34,6 +35,13 @@ export class ContactMeSection extends MenuBar{
   }
   emailStatus: 'default' | 'hover' | 'click' = 'default';
   telStatus: 'default' | 'hover' = 'default';
+
+  public menuService = inject(Menu);
+  public navService = inject(NavigationService);
+
+  get translate() {
+    return this.menuService.translate().contacMeSectionLang;
+  }
 
   handleEmailClick() {
     this.emailStatus = 'click';

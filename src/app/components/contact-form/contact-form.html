@@ -3,104 +3,100 @@
   <div class="feedback-overlay"
        [ngClass]="submissionStatus"
        (click)="closeFeedback()">
-
     @if (submissionStatus === 'sending') {
       <div class="loader-content" (click)="$event.stopPropagation()">
         <div class="spinner"></div>
-        <p>Sending message...</p>
+        <p>{{translate.sendingStatus}}</p>
       </div>
     }
-
     @if (submissionStatus === 'success') {
       <div class="status-msg" (click)="$event.stopPropagation()">
         <img src="/assets/img/contact/Box-correct.png" alt="success">
-        <p>Your message has been sent!</p>
+        <p>{{translate.sendingSuccess}}</p>
         <div class="close-icon-div"></div>
       </div>
     }
-
     @if (submissionStatus === 'error') {
       <div class="status-msg" (click)="$event.stopPropagation()">
-        <p class="error-color">Something went wrong. Try again.</p>
+        <p class="error-color">{{translate.sendingFailed}}</p>
         <div class="close-icon-div"></div>
       </div>
     }
   </div>
 }
-
   <div class="input-row">
     <div class="input-group" [class.error]="isInvalid('name')" [class.success]="isValid('name')">
       <label for="name">
          @if(!isMobile) {
           @if (isInvalid('name')) {
-            <span class="error-text">Your name is required</span>
+            <span class="error-text">{{translate.formNameLabelError}}</span>
           } @else {
-            Your name
+            {{translate.formNameLabel}}
           }
         }
       </label>
       <div class="input-wrapper">
-        <input type="text" id="name" formControlName="name" [placeholder]="isMobile && isInvalid('name') ? 'Your name is required' : 'Enter your name'">
+        <input type="text" id="name" formControlName="name" [placeholder]="isMobile && isInvalid('name') ? translate.formNameLabelError : translate.formNamePlaceholder">
         @if (isValid('name') && !isMobile) {
           <img src="/assets/img/contact/Box-correct.png" class="status-icon" alt="valid">
         }
       </div>
     </div>
-
     <div class="input-group" [class.error]="isInvalid('email')" [class.success]="isValid('email')">
       <label for="email">
         @if(!isMobile) {
           @if (isInvalid('email')) {
-            <span class="error-text">Your email is required</span>
+            <span class="error-text">{{translate.formEmailLabelError}}</span>
           } @else {
-            Your Email
+            {{translate.formEmailLabel}}
           }
         }
       </label>
       <div class="input-wrapper">
-        <input type="email" id="email" formControlName="email" [placeholder]="isMobile && isInvalid('email') ? 'Your email is required' : 'Enter your email'">
+        <input type="email" id="email" formControlName="email" [placeholder]="isMobile && isInvalid('email') ? translate.formEmailLabelError : translate.formEmailPlaceholder">
         @if (isValid('email') && !isMobile) {
           <img src="/assets/img/contact/Box-correct.png" class="status-icon" alt="valid">
         }
       </div>
     </div>
   </div>
-
   <div class="input-group full-width" [class.error]="isInvalid('message')" [class.success]="isValid('message')">
     <label for="message">
       @if (!isMobile) {
         @if (isInvalid('message')) {
-          <span class="error-text">Your message is required</span>
+          <span class="error-text">{{translate.formMessageLabelError}}</span>
         } @else {
-          Your Message
+          {{translate.formMessageLabel}}
         }
       }
     </label>
     <div class="input-wrapper">
-      <textarea id="message" formControlName="message" [placeholder]="isMobile && isInvalid('message') ? 'Your message is required' : 'How can I help you?'"
+      <textarea id="message" formControlName="message" [placeholder]="isMobile && isInvalid('message') ? translate.formMessageLabelError : translate.formMessagePlaceholder"
       ></textarea>
       @if (isValid('message') && !isMobile) {
         <img src="/assets/img/contact/Box-correct.png" class="status-icon" alt="valid">
       }
     </div>
   </div>
-
   <div class="privacy-section" [class.error]="isInvalid('privacy')">
     <label class="checkbox-container">
       <input type="checkbox" formControlName="privacy">
       <span class="custom-checkbox"></span>
       <div class="privacy-text">
-        <p>I've read the <a [routerLink]="['/privacy-policy']" target="_self">privacy policy</a> and agree to the processing of my data as outlined.</p>
+        <p>
+          {{translate.privacyPolicyLang.partA}}
+          <a [routerLink]="['/privacy-policy']" target="_self">{{translate.privacyPolicyLang.link}}</a>
+          {{translate.privacyPolicyLang.partB}}
+        </p>
         @if (isInvalid('privacy')) {
-          <span class="error-message">Please accept the privacy policy.</span>
+          <span class="error-message">{{translate.privacyPolicyLangError}}</span>
         }
       </div>
     </label>
   </div>
-
   <div class="submit-area">
     <button type="submit" [disabled]="!contactForm.valid || submissionStatus === 'sending'">
-      Send
+      {{translate.btn}}
     </button>
   </div>
 </form>
