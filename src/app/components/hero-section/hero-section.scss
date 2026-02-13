@@ -134,8 +134,8 @@
       align-items: center;
       &--my{
         margin: 0;
-        -webkit-mask-image: url('/assets/img/BG-shape-halb.png');
-        mask-image: url('/assets/img/BG-shape-halb.png');
+        -webkit-mask-image: url('../../../../public/assets/img/BG-shape-halb.png');
+        mask-image: url('../../../../public/assets/img/BG-shape-halb.png');
         -webkit-mask-size: contain;
         mask-size: 100%;
         -webkit-mask-repeat: no-repeat;

@@ -42,13 +42,13 @@
     height: clamp(290px, 30vw, 400px);
     aspect-ratio: 1;
     gap: 16px;
-    background-image: url("/assets/img/projects/references/Default.png");
+    background-image: url("../../../../public/assets/img/projects/references/REF-Default.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     transition: background-image 0.5s ease-in-out;
     &:hover{
-      background-image: url("/assets/img/projects/references/Hover.png");
+      background-image: url("../../../../public/assets/img/projects/references/REF-Hover.png");
     }
     a{
       width: 100%;

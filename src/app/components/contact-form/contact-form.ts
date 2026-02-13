@@ -6,6 +6,12 @@ import { FormState } from '../../services/form-state';
 import { HttpClient } from '@angular/common/http';
 import { Menu } from '../../services/menu';
 
+interface ContactResponse {
+  success: boolean;
+  message?: string;
+  error?: string;
+}
+
 @Component({
   selector: 'app-contact-form',
   standalone: true,
@@ -65,17 +71,22 @@ export class ContactForm implements OnInit, OnDestroy {
   onSubmit() {
     if (this.contactForm.valid) {
       this.submissionStatus = 'sending';
-      const endpoint = "https://artur-groblicki.developerakademie.net/Portfolio/php/send_mail.php";
-      this.http.post(endpoint, this.contactForm.value).subscribe({
-        next: (response: any) => {
-          this.submissionStatus = 'success';
-          this.formService.clear();
-          this.contactForm.reset();
-          setTimeout(() => this.closeFeedback(), 5000);
+      const ENDPOINT = "contact_form_mail.php";
+      this.http.post<ContactResponse>(ENDPOINT, this.contactForm.value).subscribe({
+        next: (response) => {
+          if (response.success) {
+            this.submissionStatus = 'success';
+            this.contactForm.reset();
+            this.formService.clear();
+            setTimeout(() => this.closeFeedback(), 5000);
+          } else {
+            console.error('Server error message:', response.error);
+            this.submissionStatus = 'error';
+          }
         },
         error: (error) => {
           this.submissionStatus = 'error';
-          console.error('Submission error:', error);
+          console.error('Network or Server error:', error);
           setTimeout(() => this.closeFeedback(), 4000);
         }
       });

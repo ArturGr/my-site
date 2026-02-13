@@ -46,7 +46,7 @@ export class MyProjectSection extends MySkillsSection {
         technologies: [this.iconMobile[2][2],this.iconMobile[3][2],this.iconMobile[4][2],this.iconMobile[7][2]],
         technologiesIMG: [this.iconMobile[2][0],this.iconMobile[3][0],this.iconMobile[4][0],this.iconMobile[7][0]],
         technologiesALT:[this.iconMobile[2][1],this.iconMobile[3][1],this.iconMobile[4][1],this.iconMobile[7][1]],
-        img: "/assets/img/projects/ElPolloLoco.png",
+        img: "./assets/img/projects/ElPolloLoco.png",
         git:"https://github.com/ArturGr/El_Pollo_Loco.git",
         live:"https://artur-groblicki.developerakademie.net/El_Pollo_Loco/index.html",
       }
@@ -66,7 +66,7 @@ export class MyProjectSection extends MySkillsSection {
         technologies: [this.iconMobile[2][2],this.iconMobile[3][2],this.iconMobile[4][2],this.iconMobile[5][2],this.iconMobile[7][2]],
         technologiesIMG: [this.iconMobile[2][0],this.iconMobile[3][0],this.iconMobile[4][0],this.iconMobile[5][0],this.iconMobile[7][0]],
         technologiesALT:[this.iconMobile[2][1],this.iconMobile[3][1],this.iconMobile[4][1],this.iconMobile[5][1],this.iconMobile[7][1]],
-        img: "/assets/img/projects/Pokedex.png",
+        img: "./assets/img/projects/Pokedex.png",
         git:"https://github.com/ArturGr/Pokedex.git",
         live:"https://artur-groblicki.developerakademie.net/Pokedex/index.html",
       }
@@ -86,7 +86,7 @@ export class MyProjectSection extends MySkillsSection {
         technologies: [this.iconMobile[2][2],this.iconMobile[3][2],this.iconMobile[4][2],this.iconMobile[7][2]],
         technologiesIMG: [this.iconMobile[2][0],this.iconMobile[3][0],this.iconMobile[4][0],this.iconMobile[7][0]],
         technologiesALT:[this.iconMobile[2][1],this.iconMobile[3][1],this.iconMobile[4][1],this.iconMobile[7][1]],
-        img: "/assets/img/projects/Bestellapp.png",
+        img: "./assets/img/projects/Bestellapp.png",
         git:"https://github.com/ArturGr/Bestellapp.git",
         live:"https://artur-groblicki.developerakademie.net/Bestellapp/index.html",
       }
@@ -106,7 +106,7 @@ export class MyProjectSection extends MySkillsSection {
         technologies: [this.iconMobile[0][2],this.iconMobile[1][2],this.iconMobile[5][2],this.iconMobile[6][2],this.iconMobile[7][2]],
         technologiesIMG: [this.iconMobile[0][0],this.iconMobile[1][0],this.iconMobile[5][0],this.iconMobile[6][0],this.iconMobile[7][0]],
         technologiesALT:[this.iconMobile[0][1],this.iconMobile[1][1],this.iconMobile[5][1],this.iconMobile[6][1],this.iconMobile[7][1]],
-        img: "/assets/img/projects/Placeholder.png",
+        img: "./assets/img/projects/Placeholder.png",
         git:"https://github.com/",
         live:"#",
       }

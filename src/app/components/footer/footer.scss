@@ -42,12 +42,12 @@
   }
   &__social-btn{
     --flex-direction: row;
-    --githubDef:url("/assets/img/social-media-buttons/github/dark.png");
-    --githubHov:url("/assets/img/social-media-buttons/github/white.png");
-    --linkedinbDef:url("/assets/img/social-media-buttons/linkedin/dark.png");
-    --linkedinHov:url("/assets/img/social-media-buttons/linkedin/white.png");
-    --emailDef:url("/assets/img/social-media-buttons/email/dark.png");
-    --emailHov:url("/assets/img/social-media-buttons/email/white.png");
+    --githubDef:url("../../../../public/assets/img/social-media-buttons/github/GIT-dark.png");
+    --githubHov:url("../../../../public/assets/img/social-media-buttons/github/GIT-white.png");
+    --linkedinbDef:url("../../../../public/assets/img/social-media-buttons/linkedin/LINKEDIN-dark.png");
+    --linkedinHov:url("../../../../public/assets/img/social-media-buttons/linkedin/LINKEDIN-white.png");
+    --emailDef:url("../../../../public/assets/img/social-media-buttons/email/EMAIL-dark.png");
+    --emailHov:url("../../../../public/assets/img/social-media-buttons/email/EMAIL-white.png");
   }
 }
 
@@ -73,9 +73,9 @@
     }
     &__social-btn{
       bottom: calc((100% - 2 * 30px - 21.6px - 74px) / 2 + 21.6px + 30px / 2);;
-      --githubDef:url("/assets/img/social-media-buttons/github/mobile.png");
-      --linkedinbDef:url("/assets/img/social-media-buttons/linkedin/mobile.png");
-      --emailDef:url("/assets/img/social-media-buttons/email/mobile.png");
+      --githubDef:url("../../../../public/assets/img/social-media-buttons/github/GIT-mobile.png");
+      --linkedinbDef:url("../../../../public/assets/img/social-media-buttons/linkedin/LINKEDIN-mobile.png");
+      --emailDef:url("../../../../public/assets/img/social-media-buttons/email/EMAIL-mobile.png");
     }
   }
 }

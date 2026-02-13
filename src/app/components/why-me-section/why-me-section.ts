@@ -31,7 +31,6 @@ export class WhyMeSection {
   displayText = signal(this.menuService.actualLanguage() === 'DE' ? this.slides[0].fullTextDE : this.slides[0].fullTextEN);
   isAnimatingWhySlide = signal(false);
 
-  //
   async triggerAnimation() {
     if (this.isAnimatingWhySlide() ) return;
     this.isAnimatingWhySlide.set(true);
@@ -44,7 +43,6 @@ export class WhyMeSection {
     this.isAnimatingWhySlide.set(false);
   }
 
-  //
   private async runSlideCycle(index: number) {
     this.currentSlideIndex.set(index);
     const lang = this.menuService.actualLanguage();
@@ -52,9 +50,8 @@ export class WhyMeSection {
 
     await this.typeEffect(textToType);
     return new Promise(res => setTimeout(res, 1000));
-}
+  }
 
-  //
   private typeEffect(text: string): Promise<void> {
     return new Promise(resolve => {
       let i = 0;
@@ -68,7 +65,6 @@ export class WhyMeSection {
     });
   }
 
-  //
   private backspaceEffect(): Promise<void> {
     return new Promise(resolve => {
       let text = this.displayText();
@@ -83,7 +79,6 @@ export class WhyMeSection {
     });
   }
 
-  //
   getHighlightIndex(text: string): number {
     let letterCount = 0;
     let i = 0;

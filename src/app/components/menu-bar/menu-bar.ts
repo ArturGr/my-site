@@ -45,7 +45,6 @@ export class MenuBar {
     return this.menuService.translate().menuLang;
   }
 
-  //animacja burger menu
   toggleMenu() {
    if (this.isAnimating) return;
     this.isAnimating = true;
@@ -62,7 +61,6 @@ export class MenuBar {
     }, 30);
   }
 
-  //funkcja przypisujaca klase "active" do przyciskow jezykowych menu i wywolanie zmiany jezyka
   activLangBtn(lang: Lang) {
     const btnId = lang + '-btn';
     this.activedLangBtn = btnId;
@@ -70,15 +68,12 @@ export class MenuBar {
     this.menuService.changeLanguage(lang);
   }
 
-  //funkcja dla mouseover na przycisku jeyzkowym
   handleLangHover(btnId: string) {
     if(btnId == this.lastActiveLangBtn) return;
     this.activedLangBtn = '';
   }
 
-  //funkcja dla mouseleave na przycosku jezykowym
   handleLangLeave() {
     this.activedLangBtn = this.lastActiveLangBtn;
   }
-
 }

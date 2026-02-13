@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Josefin Sans';
-  src: url('/assets/fonts/JosefinSans-VariableFont_wght.ttf') format('truetype');
+  src: url('../public/assets/fonts/JosefinSans-VariableFont_wght.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Anta';
-  src: url('/assets/fonts/Anta-Regular.ttf') format('truetype');
+  src: url('../public/assets/fonts/Anta-Regular.ttf') format('truetype');
 }
 
 $primary-color: #89BCD9;

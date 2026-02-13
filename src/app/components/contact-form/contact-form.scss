@@ -107,14 +107,14 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
-        background-image: url("/assets/img/contact/checkbox/Default.png");
+        background-image: url("../../../../public/assets/img/contact/checkbox/BOX-Default.png");
         transition: background-image 0.2s ease;
       }
       &:hover .custom-checkbox {
-        background-image: url("/assets/img/contact/checkbox/Hover.png");
+        background-image: url("../../../../public/assets/img/contact/checkbox/BOX-Hover.png");
       }
       input:checked + .custom-checkbox {
-        background-image: url("/assets/img/contact/checkbox/Checked.png") !important;
+        background-image: url("../../../../public/assets/img/contact/checkbox/BOX-Checked.png") !important;
       }
 
       .privacy-text {
@@ -148,13 +148,13 @@
     &.error {
       .checkbox-container {
         .custom-checkbox {
-          background-image: url("/assets/img/contact/checkbox/Error.png");
+          background-image: url("../../../../public/assets/img/contact/checkbox/BOX-Error.png");
         }
         &:hover .custom-checkbox {
-          background-image: url("/assets/img/contact/checkbox/Error.png");
+          background-image: url("../../../../public/assets/img/contact/checkbox/BOX-Error.png");
         }
         input:checked + .custom-checkbox {
-          background-image: url("/assets/img/contact/checkbox/Checked.png") !important;
+          background-image: url("../../../../public/assets/img/contact/checkbox/BOX-Checked.png") !important;
         }
       }
     }
@@ -224,7 +224,7 @@
     height: 35px;
     cursor: pointer;
     z-index: 20;
-    background-image: url('/assets/img/burger-menu/close.png');
+    background-image: url('../../../../public/assets/img/burger-menu/close.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

@@ -101,7 +101,7 @@
           }
           &.click {
             transform: scale(0.85);
-            background-image: url("/assets/img/contact/email/Click.png") !important;
+            background-image: url("../../../../public/assets/img/contact/email/EMAIL-Click.png") !important;
             &::after {
             opacity: 0 !important;
             }
@@ -109,12 +109,12 @@
         }
 
         .email-icon {
-          background-image: url("/assets/img/contact/email/Default.png");
+          background-image: url("../../../../public/assets/img/contact/email/EMAIL-Default.png");
           &::after {
-            background-image: url("/assets/img/contact/email/Hover.png");
+            background-image: url("../../../../public/assets/img/contact/email/EMAIL-Hover.png");
           }
           &.click {
-            background-image: url("/assets/img/contact/email/Click.png") !important;
+            background-image: url("../../../../public/assets/img/contact/email/EMAIL-Click.png") !important;
             &::after {
               opacity: 0 !important;
             }
@@ -122,9 +122,9 @@
         }
 
         .tel-icon {
-          background-image: url("/assets/img/contact/tel/Default.png");
+          background-image: url("../../../../public/assets/img/contact/tel/TEL-Default.png");
           &::after {
-            background-image: url("/assets/img/contact/tel/Hover.png");
+            background-image: url("../../../../public/assets/img/contact/tel/TEL-Hover.png");
           }
         }
         p {

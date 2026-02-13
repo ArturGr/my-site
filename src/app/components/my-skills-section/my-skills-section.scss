@@ -63,13 +63,13 @@
         "icons"
         "desc";
       height: -webkit-fill-available;
-      background-image: url("/assets/img/skills/Ellipse-Default.png");
+      background-image: url("../../../../public/assets/img/skills/SKILLS-Ellipse-Default.png");
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
       transition: background-image 0.5s ease-in-out;
       &:hover {
-        background-image: url("/assets/img/skills/Ellipse-Hover.png");
+        background-image: url("../../../../public/assets/img/skills/SKILLS-Ellipse-Hover.png");
       }
       span {
         font-family: 'Josefin Sans';
@@ -157,7 +157,7 @@ button{
             left: -10%;
             width: 113px;
             height: 96px;
-            background-image: url("/assets/img/skills/mobile/Ellipse-24.png");
+            background-image: url("../../../../public/assets/img/skills/mobile/MOB-Ellipse-24.png");
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;

@@ -12,7 +12,7 @@
     @if (submissionStatus === 'success') {
       <div class="status-msg" (click)="$event.stopPropagation()">
         <p>{{translate.sendingSuccess}}</p>
-        <img src="/assets/img/contact/Box-correct.png" alt="success">
+        <img src="./assets/img/contact/Box-correct.png" alt="success">
         <div class="close-icon-div" (click)="closeFeedback()"></div>
       </div>
     }
@@ -38,7 +38,7 @@
       <div class="input-wrapper">
         <input type="text" id="name" formControlName="name" [placeholder]="isMobile && isInvalid('name') ? translate.formNameLabelError : translate.formNamePlaceholder">
         @if (isValid('name') && !isMobile) {
-          <img src="/assets/img/contact/Box-correct.png" class="status-icon" alt="valid">
+          <img src="./assets/img/contact/Box-correct.png" class="status-icon" alt="valid">
         }
       </div>
     </div>
@@ -55,7 +55,7 @@
       <div class="input-wrapper">
         <input type="email" id="email" formControlName="email" [placeholder]="isMobile && isInvalid('email') ? translate.formEmailLabelError : translate.formEmailPlaceholder">
         @if (isValid('email') && !isMobile) {
-          <img src="/assets/img/contact/Box-correct.png" class="status-icon" alt="valid">
+          <img src="./assets/img/contact/Box-correct.png" class="status-icon" alt="valid">
         }
       </div>
     </div>
@@ -74,7 +74,7 @@
       <textarea id="message" formControlName="message" [placeholder]="isMobile && isInvalid('message') ? translate.formMessageLabelError : translate.formMessagePlaceholder"
       ></textarea>
       @if (isValid('message') && !isMobile) {
-        <img src="/assets/img/contact/Box-correct.png" class="status-icon" alt="valid">
+        <img src="./assets/img/contact/Box-correct.png" class="status-icon" alt="valid">
       }
     </div>
   </div>
