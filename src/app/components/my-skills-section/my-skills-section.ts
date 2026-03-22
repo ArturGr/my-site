@@ -20,6 +20,7 @@ export class MySkillsSection{
     ["./assets/img/skills/7-GIT.png","GIT Icon"],
     ["./assets/img/skills/8-Scrum.png","Scrum Icon"],
     ["./assets/img/skills/9-Material-Design.png","Material Design Icon"],
+    ["./assets/img/skills/10-supabase.png","Supabase Icon","Supabase"],
   ];
 
   iconMobile:string[][]=[
@@ -33,6 +34,7 @@ export class MySkillsSection{
     ["./assets/img/skills/mobile/7-GIT.png","GIT Icon","GIT"],
     ["./assets/img/skills/mobile/8-Scrum.png","Scrum Icon","Scrum"],
     ["./assets/img/skills/mobile/9-Material-Design.png","Material Design Icon","Material Design"],
+    ["./assets/img/skills/mobile/10-supabase.png","Supabase Icon","Supabase"],
   ];
 
   currentlyLearning:string[][]=[
