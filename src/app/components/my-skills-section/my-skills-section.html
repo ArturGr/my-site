@@ -5,11 +5,15 @@
         <div class="my-skills-section__inhalt__grid">
         @if (isMobile) {
           @for (item of iconMobile; track item[1]) {
+            @if(item[1] != "Firebase Icon"){
             <img [src]="item[0]" [alt]="item[1]">
+            }
           }
         } @else {
           @for (item of iconDesktop; track item[1]) {
+            @if(item[1] != "Firebase Icon"){
             <img [src]="item[0]" [alt]="item[1]">
+            }
           }
         }
         </div>

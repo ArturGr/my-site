@@ -74,26 +74,6 @@ export class MyProjectSection extends MySkillsSection {
     {
       id:3,
       properties:{
-        duration:"1 week",
-        durationDE:"1 Woche",
-        name:"Bestell-App",
-        about:"A food ordering application focused on shopping cart logic, real-time price calculations, and dynamic DOM updates. Built with Vanilla JavaScript.",
-        aboutDE: "Eine Anwendung zur Essensbestellung mit Fokus auf Warenkorb-Logik, Preisberechnungen in Echtzeit und dynamischen DOM-Aktualisierungen. Entwickelt mit Vanilla JavaScript.",
-        workProcess: "I built a modular architecture to separate product logic from the shopping cart and checkout systems. I focused on dynamic state management to ensure real-time UI updates and a responsive, intuitive user experience.",
-        workProcessDE: "Ich habe eine modulare Architektur aufgebaut, um die Produktlogik von den Warenkorb- und Checkout-Systemen zu trennen. Mein Fokus lag auf dynamischem Zustandsmanagement (State Management), um Echtzeit-UI-Updates und eine intuitive Benutzererfahrung zu gewährleisten.",
-        groupWorkExperience: "I independently handled the roadmap and development, using Git to maintain a structured workflow. By acting as both architect and tester, I ensured seamless logic integration and a reliable, error-free ordering process.",
-        groupWorkExperienceDE: "Ich habe die Roadmap und die Entwicklung eigenständig verwaltet und Git genutzt, um einen strukturierten Workflow beizubehalten. In der Doppelrolle als Architekt und Tester stellte ich eine nahtlose Integration der Logik sowie einen zuverlässigen, fehlerfreien Bestellprozess sicher.",
-        technologies: [this.iconMobile[2][2],this.iconMobile[3][2],this.iconMobile[4][2],this.iconMobile[7][2]],
-        technologiesIMG: [this.iconMobile[2][0],this.iconMobile[3][0],this.iconMobile[4][0],this.iconMobile[7][0]],
-        technologiesALT:[this.iconMobile[2][1],this.iconMobile[3][1],this.iconMobile[4][1],this.iconMobile[7][1]],
-        img: "./assets/img/projects/Bestellapp.png",
-        git:"https://github.com/ArturGr/Bestellapp.git",
-        live:"https://artur-groblicki.developerakademie.net/Bestellapp/index.html",
-      }
-    },
-    {
-      id:4,
-      properties:{
         duration:"5 weeks",
         durationDE:"5 Wochen",
         name:"Join",

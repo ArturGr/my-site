@@ -39,7 +39,7 @@ export class ContactForm implements OnInit, OnDestroy {
   ) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
       message: ['', [Validators.required, Validators.minLength(5)]],
       privacy: [false, Validators.requiredTrue]
     });
