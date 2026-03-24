@@ -73,7 +73,7 @@
       }
       span {
         font-family: 'Josefin Sans';
-        font-size: 18px;
+        font-size: clamp(16px, 1.5vw, 18px);
         line-height: 1.2;
         text-align: center;
         color: styles.$secondary-color;
