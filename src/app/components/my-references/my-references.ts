@@ -34,20 +34,20 @@ export class MyReferences {
     {
       id:2,
       properties:{
-        personName:"Lorem ipsum",
+        personName:"Lukas Müller",
         projectName:"Join",
-        description:"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea",
-        descriptionDE:"",
+        description:"Collaborating with Artur on the Join project was a great experience. He is a reliable team player who consistently maintains clean code and meets deadlines. His structured approach significantly simplified the integration of our individual tasks.",
+        descriptionDE:"Die Zusammenarbeit mit Artur beim Join-Projekt verlief sehr reibungslos. Er ist ein zuverlässiger Teamplayer, der stets auf sauberen Code achtet und vereinbarte Deadlines einhält. Seine strukturierte Arbeitsweise hat die Integration unserer Teilaufgaben erheblich erleichtert.",
         linkedProfile:"https://www.linkedin.com/",
       }
     },
     {
       id:3,
       properties:{
-        personName:"Lorem ipsum",
-        projectName:"Lorem ipsum dolor",
-        description:"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea",
-        descriptionDE:"",
+        personName:"Sarah Schmidt",
+        projectName:"Kochwelt",
+        description:"We worked together on the game logic. Artur stays calm while debugging and finds logical solutions even for complex problems. He is a helpful team member whose technical support is always dependable.",
+        descriptionDE:"Wir haben gemeinsam an der Spiellogik gearbeitet. Artur bewahrt beim Debuggen die Ruhe und findet auch für komplexe Probleme logische Lösungen. Er ist ein hilfsbereites Teammitglied, auf dessen technische Unterstützung man sich immer verlassen kann.",
         linkedProfile:"https://www.linkedin.com/",
       }
     },

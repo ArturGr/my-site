@@ -40,7 +40,7 @@ export class ContactForm implements OnInit, OnDestroy {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
-      message: ['', [Validators.required, Validators.minLength(5)]],
+      message: ['', [Validators.required, Validators.minLength(2)]],
       privacy: [false, Validators.requiredTrue]
     });
   }
@@ -78,7 +78,7 @@ export class ContactForm implements OnInit, OnDestroy {
             this.submissionStatus = 'success';
             this.contactForm.reset();
             this.formService.clear();
-            setTimeout(() => this.closeFeedback(), 5000);
+            setTimeout(() =>  this.submissionStatus = 'idle', 2000);
           } else {
             console.error('Server error message:', response.error);
             this.submissionStatus = 'error';
@@ -87,7 +87,7 @@ export class ContactForm implements OnInit, OnDestroy {
         error: (error) => {
           this.submissionStatus = 'error';
           console.error('Network or Server error:', error);
-          setTimeout(() => this.closeFeedback(), 4000);
+          setTimeout(() =>  this.submissionStatus = 'idle', 2000);
         }
       });
     } else {
