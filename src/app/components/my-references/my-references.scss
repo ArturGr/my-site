@@ -30,7 +30,7 @@
     align-items: center;
     height: 400px;
     width: calc(100% + 2 * clamp(1.25rem, 8vw, 6.81rem));
-    gap: 16px;
+    gap: 32px;
   }
   &__inhalt{
     display: flex;
@@ -84,7 +84,6 @@
       color: styles.$secondary-color;
     }
     &__description{
-      width: 80%;
       font-family: 'Josefin Sans';
       font-style: normal;
       font-weight: 400;
@@ -92,18 +91,25 @@
       line-height: 1.2;
       text-align: center;
       color: styles.$secondary-color;
+      white-space: break-spaces;
+      height: 152px;
+      max-height: 152px;
+      width: 270px;
+      max-width: 270px;
+      overflow-y: auto;
+      margin: 0px 6px 8px 0px;
     }
   }
 }
 
-@media screen and (max-width:966px) {
+@media screen and (max-width:1200px) {
 
   .references{
     &__board{
       justify-content: flex-start;
       overflow-x: scroll;
       overflow-y: hidden;
-      padding-left: clamp(1.25rem, 8vw, 6.81rem);
+      padding: 0 clamp(1.25rem, 8vw, 6.81rem);
     }
   }
 }

@@ -34,21 +34,21 @@ export class MyReferences {
     {
       id:2,
       properties:{
-        personName:"Lukas Müller",
+        personName:"Feraz",
         projectName:"Join",
-        description:"Collaborating with Artur on the Join project was a great experience. He is a reliable team player who consistently maintains clean code and meets deadlines. His structured approach significantly simplified the integration of our individual tasks.",
-        descriptionDE:"Die Zusammenarbeit mit Artur beim Join-Projekt verlief sehr reibungslos. Er ist ein zuverlässiger Teamplayer, der stets auf sauberen Code achtet und vereinbarte Deadlines einhält. Seine strukturierte Arbeitsweise hat die Integration unserer Teilaufgaben erheblich erleichtert.",
+        description:"I just want to tell you that you’re a really strong developer. Your vast expertise and understanding of complex relationships are truly impressive. Your work has not only been helpful for our project, but absolutely crucial—without your contribution, we definitely wouldn’t be where we are now. Thank you very much for your dedication and the quality you consistently deliver!",
+        descriptionDE:"Ich möchte dir einfach mal sagen, dass du ein richtig starker Entwickler bist. Dein enormes Fachwissen und dein Verständnis für komplexe Zusammenhänge sind wirklich beeindruckend. Deine Arbeit war für unser Projekt nicht nur hilfreich, sondern absolut entscheidend. Ohne deinen Beitrag wären wir definitiv nicht da, wo wir jetzt stehen. Vielen Dank für deinen Einsatz und die Qualität, die du konstant lieferst!",
         linkedProfile:"https://www.linkedin.com/",
       }
     },
     {
       id:3,
       properties:{
-        personName:"Sarah Schmidt",
+        personName:"Volker Derksen",
         projectName:"Kochwelt",
-        description:"We worked together on the game logic. Artur stays calm while debugging and finds logical solutions even for complex problems. He is a helpful team member whose technical support is always dependable.",
-        descriptionDE:"Wir haben gemeinsam an der Spiellogik gearbeitet. Artur bewahrt beim Debuggen die Ruhe und findet auch für komplexe Probleme logische Lösungen. Er ist ein hilfsbereites Teammitglied, auf dessen technische Unterstützung man sich immer verlassen kann.",
-        linkedProfile:"https://www.linkedin.com/",
+        description:"I got to know Artur as a very structured and logical developer. His quick grasp of concepts and his focused approach to tasks were particularly noticeable in our joint project. It's clear he already has programming experience.",
+        descriptionDE:"Ich habe Artur als einen sehr strukturiert und logisch arbeitenden Entwickler kennengelernt. Besonders in unserem gemeinsamen Projekt ist mir seine schnelle Auffassungsgabe aufgefallen sowie die Art, wie zielgerichtet er an Aufgaben herangeht. Man merkt schnell, dass er bereits über Erfahrung in der Programmierung verfügt.",
+        linkedProfile:"https://www.linkedin.com/in/volker-derksen-2a340633a/",
       }
     },
   ]
@@ -58,5 +58,4 @@ export class MyReferences {
   get translate() {
     return this.menuService.translate().myProjectSectionLang;
   }
-
 }
