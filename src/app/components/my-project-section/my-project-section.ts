@@ -94,10 +94,22 @@ export class MyProjectSection extends MySkillsSection {
   ]
   activeProject:number = 1;
 
+  /**
+  * Getter that retrieves the localized content for the "My Projects" section.
+  * Accesses the Menu service to provide the correct titles, descriptions, and labels
+  * based on the application's current language setting.
+  * @returns {any} An object containing translated text for the project gallery.
+  */
   get translateProject() {
     return this.menuService.translate().myProjectSectionLang;
   }
 
+  /**
+  * Getter that checks if the application's active language is currently set to German (DE).
+  * Useful for conditional styling, specific formatting, or language-dependent logic
+  * within the component's template.
+  * @returns {boolean} True if the current language is German, false otherwise.
+  */
   get isDE() {
     return this.menuService.actualLanguage() === 'DE';
   }

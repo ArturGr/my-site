@@ -45,12 +45,21 @@ export class MySkillsSection{
   protected menuService = inject(Menu);
   public navService = inject(NavigationService);
 
+  /**
+  * Getter that determines if the user is viewing the application on a mobile device.
+  * It proxies the state from the Menu service to adjust the skills layout or animations accordingly.
+  * @returns {boolean} True if the viewport matches mobile criteria, false otherwise.
+  */
   get isMobile() {
     return this.menuService.isMobile();
   }
 
+  /**
+  * Getter that retrieves the localized strings for the "My Skills" section.
+  * Fetches the specific translation subset for skill descriptions and headers from the Menu service.
+  * @returns {any} An object containing the translated text for the skills component.
+  */
   get translate() {
     return this.menuService.translate().mySkillsSectionLang;
   }
-
 }

@@ -9,10 +9,19 @@ export class NavigationService {
   activeButton = signal<string>('');
   isManualScrolling = false;
 
+  /**
+  * Initializes the scroll service and sets up a global listener for the scroll event.
+  */
   constructor(){
     window.addEventListener('scroll', () => this.onWindowScroll());
   }
 
+  /**
+  * Handles the scroll event to detect which section is currently in the viewport.
+  * Uses a detection line at 30% of the viewport height to determine the active section.
+  * Prevents automatic updates while a manual scroll animation is in progress.
+  * @private
+  */
   private onWindowScroll() {
     if (this.isManualScrolling) return;
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;
@@ -37,6 +46,13 @@ export class NavigationService {
     if (!found) this.activeButton.set('');
   }
 
+  /**
+  * Initiates a smooth scroll to a specific section.
+  * If the section is not found on the current page (e.g., when on the Legal Notice page),
+  * it navigates to the home route first and then performs the scroll.
+  * @param {string} sectionId - The ID of the target element to scroll to.
+  * @param {string} [buttonId=''] - Optional ID of the navigation button to highlight.
+  */
   scrollToSection(sectionId: string, buttonId: string = '') {
     this.isManualScrolling = true;
     this.activeButton.set(buttonId);
@@ -61,11 +77,24 @@ export class NavigationService {
     }
   }
 
+  /**
+  * Custom easing function (Ease-Out Back).
+  * Provides a "spring" effect where the scroll slightly overshoots the target before settling.
+  * @param {number} T - Current progress of the animation (0 to 1).
+  * @returns {number} The eased progress value.
+  * @private
+  */
   private easeOutBack(T: number): number {
     const S = 1.70158;
     return ((T = T - 1) * T * ((S + 1) * T + S) + 1);
   }
 
+  /**
+  * Performs a custom frame-by-frame scroll animation using requestAnimationFrame.
+  * Accounts for header height offsets and applies the custom easing function.
+  * @param {HTMLElement} ELEMENT - The target DOM element to scroll towards.
+  * @private
+  */
   private animateScroll(ELEMENT: HTMLElement) {
     const HEADER_HEIGHT = this.menuService.isMobile() ? 0 : 104;
     const START_Y = window.scrollY;

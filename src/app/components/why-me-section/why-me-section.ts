@@ -18,19 +18,32 @@ export class WhyMeSection {
 
   public menuService = inject(Menu);
   public navService = inject(NavigationService);
-
-  get isMenuOpen() {
-    return this.menuService.isMenuOpen();
-  }
-
-  get translate() {
-    return this.menuService.translate().whyMeSectionLang;
-  }
-
   currentSlideIndex = signal(0);
   displayText = signal(this.menuService.actualLanguage() === 'DE' ? this.slides[0].fullTextDE : this.slides[0].fullTextEN);
   isAnimatingWhySlide = signal(false);
 
+  /**
+  * Getter that retrieves the current visibility state of the navigation menu.
+  * @returns {boolean} True if the menu is open.
+  */
+  get isMenuOpen() {
+    return this.menuService.isMenuOpen();
+  }
+
+  /**
+  * Getter that retrieves the localized content for the "Why Me" section.
+  * @returns {any} Translated strings for headers and static text in this section.
+  */
+  get translate() {
+    return this.menuService.translate().whyMeSectionLang;
+  }
+
+  /**
+  * Orchestrates the full typewriter animation sequence.
+  * It iterates through the slides, triggering backspacing and typing effects
+  * asynchronously. Uses a guard flag to prevent overlapping animation cycles.
+  * @returns {Promise<void>}
+  */
   async triggerAnimation() {
     if (this.isAnimatingWhySlide() ) return;
     this.isAnimatingWhySlide.set(true);
@@ -43,15 +56,27 @@ export class WhyMeSection {
     this.isAnimatingWhySlide.set(false);
   }
 
+  /**
+  * Manages the lifecycle of a single slide's text display.
+  * Updates the current index, determines the correct language text,
+  * and triggers the typing effect followed by a 1-second pause.
+  * @param {number} index - The index of the slide to be displayed.
+  * @private
+  */
   private async runSlideCycle(index: number) {
     this.currentSlideIndex.set(index);
     const lang = this.menuService.actualLanguage();
     const textToType = lang === 'DE' ? this.slides[index].fullTextDE : this.slides[index].fullTextEN;
-
     await this.typeEffect(textToType);
     return new Promise(res => setTimeout(res, 1000));
   }
 
+  /**
+  * Simulates a typing effect by incrementally updating the displayText signal.
+  * @param {string} text - The full string to be typed out.
+  * @returns {Promise<void>} Resolves when the entire string has been typed.
+  * @private
+  */
   private typeEffect(text: string): Promise<void> {
     return new Promise(resolve => {
       let i = 0;
@@ -65,6 +90,11 @@ export class WhyMeSection {
     });
   }
 
+  /**
+  * Simulates a backspacing effect by incrementally removing characters from the displayText signal.
+  * @returns {Promise<void>} Resolves when the text has been completely cleared.
+  * @private
+  */
   private backspaceEffect(): Promise<void> {
     return new Promise(resolve => {
       let text = this.displayText();
@@ -79,6 +109,12 @@ export class WhyMeSection {
     });
   }
 
+  /**
+  * Calculates the character index used for highlighting the first few letters of a string.
+  * Specifically used to apply a different style (color/weight) to the beginning of the slide text.
+  * @param {string} text - The string to analyze.
+  * @returns {number} The index position after the first three non-space characters.
+  */
   getHighlightIndex(text: string): number {
     let letterCount = 0;
     let i = 0;

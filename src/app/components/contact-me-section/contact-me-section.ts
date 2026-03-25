@@ -39,10 +39,21 @@ export class ContactMeSection{
   public menuService = inject(Menu);
   public navService = inject(NavigationService);
 
+  /**
+  * Getter that retrieves the localized content for the "Contact Me" section.
+  * It dynamically accesses the translation service based on the current language
+  * state provided by the Menu service.
+  * @returns {any} An object containing translated strings and labels for the contact form.
+  */
   get translate() {
     return this.menuService.translate().contacMeSectionLang;
   }
 
+  /**
+  * Handles the visual feedback when the user clicks on the email address.
+  * Briefly updates the email status to 'click' to trigger a tactile UI response,
+  * then automatically reverts it to 'hover' state after a short delay (200ms).
+  */
   handleEmailClick() {
     this.emailStatus = 'click';
     setTimeout(() => this.emailStatus = 'hover', 200);

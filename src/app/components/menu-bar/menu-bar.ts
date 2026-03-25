@@ -28,6 +28,11 @@ export class MenuBar {
   isManualScrolling: boolean = false;
   isMobile: boolean = window.innerWidth <= 768;
 
+  /**
+  * Initializes the component and sets up a reactive effect to monitor the menu state.
+  * If the menu is closed and no animation is running, it resets the icon path to the default frame.
+  * @param {Router} router - Angular Router for navigation.
+  */
   constructor(private router: Router) {
     effect(() => {
       const isOpen = this.menuService.isMenuOpen();
@@ -37,14 +42,27 @@ export class MenuBar {
     });
   }
 
+  /**
+  * Getter that checks if the navigation menu is currently open via the Menu service.
+  * @returns {boolean} True if the menu is open, false otherwise.
+  */
   get isMenuOpen() {
     return this.menuService.isMenuOpen();
   }
 
+  /**
+  * Getter that retrieves the localized content for the menu section.
+  * @returns {any} An object containing translated menu labels and navigation links.
+  */
   get translate() {
     return this.menuService.translate().menuLang;
   }
 
+  /**
+  * Triggers the frame-by-frame menu animation (opening or closing).
+  * It reverses the image list based on the current state and updates the icon path
+  * at a fixed interval (30ms). Prevents concurrent animations using a guard flag.
+  */
   toggleMenu() {
    if (this.isAnimating) return;
     this.isAnimating = true;
@@ -61,6 +79,11 @@ export class MenuBar {
     }, 30);
   }
 
+  /**
+  * Activates the selected language and updates the visual state of the language buttons.
+  * Communicates the change to the Menu service to update the application's translation.
+  * @param {Lang} lang - The language code (e.g., 'EN', 'DE') to be activated.
+  */
   activLangBtn(lang: Lang) {
     const btnId = lang + '-btn';
     this.activedLangBtn = btnId;
@@ -68,11 +91,19 @@ export class MenuBar {
     this.menuService.changeLanguage(lang);
   }
 
+  /**
+  * Handles the hover effect on language buttons.
+  * Temporarily resets the active button styling if the hovered button is not the currently active one.
+  * @param {string} btnId - The unique identifier of the hovered language button.
+  */
   handleLangHover(btnId: string) {
     if(btnId == this.lastActiveLangBtn) return;
     this.activedLangBtn = '';
   }
 
+  /**
+  * Restores the visual highlight to the last active language button when the mouse leaves the area.
+  */
   handleLangLeave() {
     this.activedLangBtn = this.lastActiveLangBtn;
   }
